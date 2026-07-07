@@ -26,51 +26,52 @@ const { projects } = Astro.props;
       </a>
     </div>
 
-    <div class="snap-carousel" role="list" aria-label="Carrossel de projetos do portfólio">
+    <ul class="snap-carousel" aria-label="Carrossel de projetos do portfólio">
       {
         projects.map((project) => (
-          <article
-            id={`projeto-${project.data.slug}`}
-            class="card-elevated snap-carousel__item snap-carousel__item--portfolio overflow-hidden"
-            role="listitem"
-          >
-            <div class="flex aspect-[4/3] items-center justify-center bg-black">
-              <Image
-                src={project.data.image}
-                alt={project.data.alt}
-                width={project.data.image.width}
-                height={project.data.image.height}
-                format="webp"
-                quality="mid"
-                loading="lazy"
-                class="h-full w-full object-contain"
-              />
-            </div>
-            <div class="flex flex-col gap-2 p-4">
-              <p class="text-xs font-medium uppercase tracking-wide text-primary">
-                {project.data.category}
-              </p>
-              <h3 class="text-base font-semibold text-ink">{project.data.title}</h3>
-              <p class="line-clamp-3 text-sm leading-relaxed text-ink-soft">
-                {project.data.description}
-              </p>
-              {
-                project.data.link && (
-                  <a
-                    href={project.data.link.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="mt-1 text-sm font-semibold text-primary hover:underline"
-                    aria-label={`${project.data.link.label} — ${project.data.title} (abre em nova janela)`}
-                  >
-                    {project.data.link.label}
-                  </a>
-                )
-              }
-            </div>
-          </article>
+          <li class="snap-carousel__item snap-carousel__item--portfolio">
+            <article
+              id={`projeto-${project.data.slug}`}
+              class="card-elevated flex h-full flex-col overflow-hidden"
+            >
+              <div class="flex aspect-[4/3] items-center justify-center bg-black">
+                <Image
+                  src={project.data.image}
+                  alt={project.data.alt}
+                  width={640}
+                  height={640}
+                  format="webp"
+                  quality="mid"
+                  loading="lazy"
+                  class="h-full w-full object-contain"
+                />
+              </div>
+              <div class="flex flex-col gap-2 p-4">
+                <p class="text-xs font-medium uppercase tracking-wide text-primary">
+                  {project.data.category}
+                </p>
+                <h3 class="text-base font-semibold text-ink">{project.data.title}</h3>
+                <p class="line-clamp-3 text-sm leading-relaxed text-ink-soft">
+                  {project.data.description}
+                </p>
+                {
+                  project.data.link && (
+                    <a
+                      href={project.data.link.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      class="mt-1 text-sm font-semibold text-primary hover:underline"
+                      aria-label={`${project.data.link.label} — ${project.data.title} (abre em nova janela)`}
+                    >
+                      {project.data.link.label}
+                    </a>
+                  )
+                }
+              </div>
+            </article>
+          </li>
         ))
       }
-    </div>
+    </ul>
   </div>
 </section>
