@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://www.gangorraaudiodescricao.com.br/sitemap-index.xml

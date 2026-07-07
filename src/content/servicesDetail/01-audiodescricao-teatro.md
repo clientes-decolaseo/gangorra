@@ -1,0 +1,31 @@
+---
+slug: "audiodescricao-teatro"
+shortTitle: "Audiodescrição para teatro"
+h1: "Audiodescrição para teatro e espetáculos cênicos"
+seoTitle: "Audiodescrição para Teatro | Gangorra Audiodescrição"
+seoDescription: "Audiodescrição ao vivo para peças, musicais e espetáculos cênicos. Roteiro autoral, narração e cabine para tornar o teatro acessível a pessoas com deficiência visual."
+lede: "Roteiro autoral, narração ao vivo e operação técnica para que pessoas com deficiência visual acompanhem cada cena sem perder o ritmo da encenação."
+sections:
+  whatItIs: "A audiodescrição de teatro traduz em palavras tudo o que é essencial para a compreensão da obra: figurinos, cenário, gestos, expressões e ações cênicas. A narração é encaixada nas brechas do texto dramatúrgico, sem competir com falas ou trilha, e transmitida via fones de ouvido para o público com deficiência visual."
+  forWhom: "Produções teatrais, musicais, espetáculos de dança, ópera, festivais e temporadas que precisam cumprir cláusulas de acessibilidade de leis de incentivo (PROAC, Lei Rouanet, Lei Paulo Gustavo) ou ampliar o público com deficiência visual de forma estruturada."
+  howItWorks:
+    - "Análise do espetáculo a partir da gravação ou de ensaios marcados."
+    - "Elaboração do roteiro de audiodescrição com revisão por consultor com deficiência visual."
+    - "Ensaio técnico junto à equipe de som e contrarregra para encaixe das deixas."
+    - "Narração ao vivo em cabine durante cada sessão da temporada."
+    - "Disponibilização de receptores e fones para o público com deficiência visual."
+  whyGangorra: "Atuamos a partir de Poá/SP e região, atendendo a cidade de São Paulo, todo o estado e produções em qualquer lugar do Brasil. Mais de uma década audiodescrevendo teatro adulto e infantojuvenil, com equipe formada por audiodescritores-roteiristas, narradores e consultores com deficiência visual — o que garante um roteiro pensado por e para quem realmente usa o recurso."
+faqs:
+  - question: "Em quanto tempo conseguem audiodescrever uma peça?"
+    answer: "O ideal é nos acionar com pelo menos três semanas de antecedência da estreia ou da sessão acessível, para que haja tempo de assistir ao espetáculo, escrever o roteiro, fazer consultoria e ensaiar com a equipe técnica. Conseguimos atender prazos mais curtos sob demanda — fale com a gente para avaliarmos."
+  - question: "A audiodescrição precisa estar em todas as sessões?"
+    answer: "Não. A maioria das produções oferece a audiodescrição em sessões específicas, divulgadas como 'sessão acessível'. Também é possível manter o recurso em toda a temporada — escolhemos o modelo junto com a produção, considerando público e orçamento."
+  - question: "Vocês fornecem os equipamentos de transmissão?"
+    answer: "Sim. Oferecemos locação de transmissor, receptores e fones para o público com deficiência visual, dimensionada conforme a capacidade da sala. Veja também a página de locação de equipamentos."
+  - question: "Quanto custa a audiodescrição de uma peça?"
+    answer: "O valor depende da duração do espetáculo, número de sessões, complexidade do roteiro e necessidade de equipamentos. Enviamos um orçamento personalizado em até 48 horas após a primeira conversa."
+  - question: "Atendem produções fora de São Paulo?"
+    answer: "Sim. Nossa sede é em Poá/SP e atendemos toda a Grande São Paulo presencialmente, além de produções no Brasil inteiro mediante deslocamento de equipe ou parceria com narradores locais sob nossa supervisão."
+whatsappMessage: "Olá, tudo bem? Estou no site da Gangorra e gostaria de um orçamento de audiodescrição para um espetáculo de teatro."
+ctaLabel: "Solicitar orçamento de audiodescrição teatral"
+---

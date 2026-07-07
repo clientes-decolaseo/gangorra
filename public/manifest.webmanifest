@@ -1,0 +1,31 @@
+{
+  "name": "Gangorra Audiodescrição",
+  "short_name": "Gangorra",
+  "theme_color": "#1e3a8a",
+  "background_color": "#ffffff",
+  "display": "standalone",
+  "start_url": "/",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "/favicon-32.png",
+      "sizes": "32x32",
+      "type": "image/png"
+    },
+    {
+      "src": "/apple-touch-icon.png",
+      "sizes": "180x180",
+      "type": "image/png"
+    },
+    {
+      "src": "/logo-gangorra.png",
+      "sizes": "250x88",
+      "type": "image/png"
+    }
+  ]
+}

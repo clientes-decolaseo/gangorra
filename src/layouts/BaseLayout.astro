@@ -1,0 +1,135 @@
+---
+import '../styles/global.css';
+import interLatinWoff2 from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
+import Header from '../components/layout/Header.astro';
+import Footer from '../components/layout/Footer.astro';
+import WhatsAppFab from '../components/layout/WhatsAppFab.astro';
+import {
+  buildOrganizationJsonLd,
+  buildSeo,
+  formatPageTitle,
+} from '../lib/seo';
+
+interface Props {
+  title: string;
+  description: string;
+  canonical: string;
+  ogImage?: string;
+  ogType?: string;
+  noindex?: boolean;
+  jsonLd?: Record<string, unknown>[];
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogImage,
+  ogType,
+  noindex,
+  jsonLd = [],
+} = Astro.props;
+
+const seo = buildSeo({
+  title,
+  description,
+  canonical,
+  ogImage,
+  ogType,
+  noindex,
+});
+
+const pageTitle = formatPageTitle(title);
+const organizationJsonLd = buildOrganizationJsonLd();
+const jsonLdBlocks = [organizationJsonLd, ...jsonLd];
+---
+
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#1e3a8a" />
+    <meta name="generator" content={Astro.generator} />
+
+    <link rel="icon" href="/favicon.ico" sizes="any" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/manifest.webmanifest" />
+
+    <title>{pageTitle}</title>
+    <meta name="description" content={seo.description} />
+    {seo.noindex && <meta name="robots" content="noindex, nofollow" />}
+
+    <link rel="canonical" href={seo.canonical} />
+    <link rel="sitemap" type="application/xml" href="/sitemap-index.xml" />
+
+    <meta property="og:site_name" content="Gangorra Audiodescrição" />
+    <meta property="og:locale" content="pt_BR" />
+    <meta property="og:type" content={seo.ogType} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={seo.description} />
+    <meta property="og:url" content={seo.canonical} />
+    <meta property="og:image" content={seo.ogImage} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={seo.description} />
+    <meta name="twitter:image" content={seo.ogImage} />
+
+    <link
+      rel="preload"
+      href={interLatinWoff2}
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    {
+      jsonLdBlocks.map((block) => (
+        <script
+          type="application/ld+json"
+          is:inline
+          set:html={JSON.stringify(block)}
+        />
+      ))
+    }
+
+    <slot name="head" />
+
+    <script is:inline>
+      window.addEventListener('load', function () {
+        setTimeout(function () {
+          (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0],
+              j = d.createElement(s),
+              dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+          })(window, document, 'script', 'dataLayer', 'GTM-TVTH3DHT');
+        }, 1500);
+      });
+    </script>
+  </head>
+  <body class="min-h-screen bg-background text-ink antialiased">
+    <noscript>
+      <iframe
+        src="https://www.googletagmanager.com/ns.html?id=GTM-TVTH3DHT"
+        height="0"
+        width="0"
+        style="display:none;visibility:hidden"
+        title="Google Tag Manager"
+      ></iframe>
+    </noscript>
+
+    <Header />
+    <main id="conteudo-principal">
+      <slot />
+    </main>
+    <Footer />
+    <WhatsAppFab />
+  </body>
+</html>

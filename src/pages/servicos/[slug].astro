@@ -1,0 +1,242 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import {
+  buildBreadcrumbJsonLd,
+  buildFaqJsonLd,
+  buildServiceJsonLd,
+  SITE_URL,
+} from '../../lib/seo';
+import { buildWhatsAppUrl } from '../../lib/nap';
+import ProofStrip from '../../components/sections/ProofStrip.astro';
+
+export async function getStaticPaths() {
+  const pages = await getCollection('servicesDetail');
+  return pages.map((entry) => ({
+    params: { slug: entry.data.slug },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<'servicesDetail'>;
+}
+
+const { entry } = Astro.props;
+const { data } = entry;
+
+const pagePath = `/servicos/${data.slug}`;
+const whatsappUrl = buildWhatsAppUrl(data.whatsappMessage);
+
+const otherServices = (await getCollection('servicesDetail'))
+  .filter((item) => item.data.slug !== data.slug)
+  .sort((a, b) => a.data.shortTitle.localeCompare(b.data.shortTitle, 'pt-BR'));
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: 'Início', path: '/' },
+  { name: 'Serviços', path: '/servicos' },
+  { name: data.shortTitle, path: pagePath },
+]);
+
+const serviceJsonLd = buildServiceJsonLd({
+  slug: data.slug,
+  name: data.shortTitle,
+  description: data.seoDescription,
+  pageUrl: `${SITE_URL}${pagePath}`,
+});
+
+const faqJsonLd = buildFaqJsonLd(data.faqs);
+---
+
+<BaseLayout
+  title={data.seoTitle}
+  description={data.seoDescription}
+  canonical={pagePath}
+  jsonLd={[breadcrumbJsonLd, serviceJsonLd, faqJsonLd]}
+>
+  <section class="gradient-hero py-12 md:py-16" aria-labelledby="servico-title">
+    <div class="container-page">
+      <nav class="text-sm text-ink-soft" aria-label="Breadcrumb">
+        <ol class="flex flex-wrap items-center gap-1">
+          <li><a href="/" class="hover:text-primary">Início</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href="/servicos" class="hover:text-primary">Serviços</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-ink" aria-current="page">{data.shortTitle}</li>
+        </ol>
+      </nav>
+
+      <p class="eyebrow mt-6">Serviço</p>
+      <h1 id="servico-title" class="mt-3 max-w-3xl font-display text-3xl font-semibold leading-tight text-ink md:text-4xl">
+        {data.h1}
+      </h1>
+      <p class="mt-5 max-w-2xl text-base leading-relaxed text-ink-soft md:text-lg">
+        {data.lede}
+      </p>
+
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-whatsapp inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition-opacity"
+          aria-label={`${data.ctaLabel} (abre em nova janela)`}
+        >
+          {data.ctaLabel}
+        </a>
+        <a
+          href="/contato"
+          class="inline-flex items-center justify-center rounded-full border border-border bg-surface px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-surface-muted"
+        >
+          Falar pelo formulário
+        </a>
+      </div>
+      <p class="mt-5 text-sm text-ink-soft">Atendimento de Poá/SP para todo o Brasil.</p>
+    </div>
+  </section>
+
+  <ProofStrip />
+
+  <section class="py-14 md:py-20" aria-labelledby="o-que-e-title">
+    <div class="container-page grid gap-8 md:grid-cols-2 md:gap-12">
+      <div>
+        <h2 id="o-que-e-title" class="font-display text-xl font-semibold text-ink md:text-2xl">
+          O que é
+        </h2>
+        <p class="mt-4 text-sm leading-relaxed text-ink-soft md:text-base">
+          {data.sections.whatItIs}
+        </p>
+      </div>
+      <div>
+        <h2 class="font-display text-xl font-semibold text-ink md:text-2xl">Para quem</h2>
+        <p class="mt-4 text-sm leading-relaxed text-ink-soft md:text-base">
+          {data.sections.forWhom}
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-border bg-surface-muted py-14 md:py-20" aria-labelledby="como-funciona-title">
+    <div class="container-page">
+      <h2 id="como-funciona-title" class="font-display text-2xl font-semibold text-ink md:text-3xl">
+        Como funciona
+      </h2>
+      <ol class="mt-8 grid gap-4">
+        {
+          data.sections.howItWorks.map((step, index) => (
+            <li class="card-elevated flex gap-4 p-5">
+              <span class="mt-0.5 shrink-0 text-primary" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+              </span>
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-widest text-primary">
+                  Etapa {index + 1}.
+                </p>
+                <p class="mt-2 text-sm leading-relaxed text-ink-soft md:text-base">{step}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section class="py-14 md:py-20" aria-labelledby="por-que-gangorra-title">
+    <div class="container-page max-w-3xl">
+      <h2 id="por-que-gangorra-title" class="font-display text-2xl font-semibold text-ink md:text-3xl">
+        Por que a Gangorra
+      </h2>
+      <p class="mt-5 text-sm leading-relaxed text-ink-soft md:text-base">
+        {data.sections.whyGangorra}
+      </p>
+    </div>
+  </section>
+
+  <section class="border-t border-border bg-surface-muted py-14 md:py-20" aria-labelledby="faq-title">
+    <div class="container-page max-w-3xl">
+      <h2 id="faq-title" class="font-display text-2xl font-semibold text-ink md:text-3xl">
+        Perguntas frequentes
+      </h2>
+      <div class="mt-8 flex flex-col gap-3">
+        {
+          data.faqs.map((faq) => (
+            <details class="card-elevated group">
+              <summary class="cursor-pointer list-none p-5 font-semibold text-ink marker:content-none [&::-webkit-details-marker]:hidden">
+                <span class="flex items-center justify-between gap-4">
+                  {faq.question}
+                  <svg
+                    class="shrink-0 text-primary transition-transform group-open:rotate-180"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                </span>
+              </summary>
+              <div class="border-t border-border px-5 pb-5 pt-4 text-sm leading-relaxed text-ink-soft">
+                {faq.answer}
+              </div>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 md:py-20" aria-labelledby="cta-servico-title">
+    <div class="container-page">
+      <div class="rounded-3xl bg-primary px-6 py-10 text-center text-primary-foreground md:px-12 md:py-14">
+        <h2 id="cta-servico-title" class="font-display text-2xl font-semibold md:text-3xl">
+          Pronto para começar?
+        </h2>
+        <p class="mx-auto mt-4 max-w-xl text-sm opacity-90 md:text-base">
+          {data.lede}
+        </p>
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="mt-8 inline-flex items-center justify-center rounded-full bg-surface px-6 py-3 text-sm font-semibold text-primary transition-opacity hover:opacity-90"
+          aria-label={`${data.ctaLabel} (abre em nova janela)`}
+        >
+          {data.ctaLabel}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-border pb-16 md:pb-24" aria-labelledby="outros-servicos-title">
+    <div class="container-page">
+      <h2 id="outros-servicos-title" class="font-display text-2xl font-semibold text-ink md:text-3xl">
+        Outros serviços
+      </h2>
+      <ul class="mt-8 grid gap-4 md:grid-cols-3">
+        {
+          otherServices.map((other) => (
+            <li>
+              <a
+                href={`/servicos/${other.data.slug}`}
+                class="card-elevated group flex h-full flex-col gap-3 p-5 transition-shadow hover:shadow-[var(--shadow-glow)]"
+              >
+                <h3 class="text-base font-semibold text-ink group-hover:text-primary">
+                  {other.data.shortTitle}
+                </h3>
+                <p class="text-sm leading-relaxed text-ink-soft">{other.data.lede}</p>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

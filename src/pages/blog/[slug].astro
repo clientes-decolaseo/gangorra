@@ -1,0 +1,192 @@
+---
+import { Image, getImage } from 'astro:assets';
+import type { CollectionEntry } from 'astro:content';
+import { getCollection, render } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { buildBreadcrumbJsonLd, ORG_ID, SITE_URL } from '../../lib/seo';
+import { buildWhatsAppUrl } from '../../lib/nap';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('posts');
+  return posts.map((entry) => ({
+    params: { slug: entry.data.slug },
+    props: { entry },
+  }));
+}
+
+interface Props {
+  entry: CollectionEntry<'posts'>;
+}
+
+const { entry } = Astro.props;
+const { data } = entry;
+const { Content } = await render(entry);
+
+const pagePath = `/blog/${data.slug}`;
+const canonicalUrl = `${SITE_URL}${pagePath}`;
+
+const coverOptimized = await getImage({
+  src: data.coverImage,
+  format: 'webp',
+  quality: 'mid',
+});
+const coverAbsoluteUrl = new URL(coverOptimized.src, SITE_URL).href;
+
+const dateFormatter = new Intl.DateTimeFormat('pt-BR', { dateStyle: 'long' });
+const formattedDate = dateFormatter.format(data.date);
+
+const allPosts = (await getCollection('posts')).sort(
+  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
+);
+const otherPosts = allPosts.filter((post) => post.data.slug !== data.slug).slice(0, 3);
+
+const whatsappUrl = buildWhatsAppUrl(
+  'Olá! Vim do blog da Gangorra e gostaria de saber mais sobre os serviços.',
+);
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: 'Início', path: '/' },
+  { name: 'Blog', path: '/blog' },
+  { name: data.title, path: pagePath },
+]);
+
+const articleJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BlogPosting',
+  headline: data.title,
+  description: data.excerpt,
+  image: [coverAbsoluteUrl],
+  datePublished: data.date.toISOString(),
+  author: {
+    '@type': 'Organization',
+    '@id': ORG_ID,
+  },
+  publisher: {
+    '@id': ORG_ID,
+  },
+  mainEntityOfPage: canonicalUrl,
+};
+---
+
+<BaseLayout
+  title={data.seoTitle}
+  description={data.seoDescription}
+  canonical={pagePath}
+  ogImage={coverAbsoluteUrl}
+  ogType="article"
+  jsonLd={[breadcrumbJsonLd, articleJsonLd]}
+>
+  <section class="border-b border-border py-8 md:py-10" aria-labelledby="post-title">
+    <div class="container-page max-w-3xl">
+      <nav aria-label="Trilha de navegação">
+        <ol class="flex flex-wrap items-center gap-x-2 gap-y-1 text-sm text-ink-soft">
+          <li>
+            <a href="/" class="transition-colors hover:text-primary">Início</a>
+          </li>
+          <li aria-hidden="true">/</li>
+          <li>
+            <a href="/blog" class="transition-colors hover:text-primary">Blog</a>
+          </li>
+          <li aria-hidden="true">/</li>
+          <li class="text-ink" aria-current="page">
+            {data.title}
+          </li>
+        </ol>
+      </nav>
+      <time
+        datetime={data.date.toISOString()}
+        class="mt-4 block text-sm font-medium text-ink-soft"
+      >
+        {formattedDate}
+      </time>
+      <h1 id="post-title" class="mt-3 font-display text-2xl font-semibold text-ink md:text-3xl">
+        {data.title}
+      </h1>
+    </div>
+  </section>
+
+  <article class="container-page max-w-3xl py-10 md:py-14">
+    <Image
+      src={data.coverImage}
+      alt={data.coverAlt}
+      width={data.coverImage.width}
+      height={data.coverImage.height}
+      format="webp"
+      quality="mid"
+      loading="eager"
+      fetchpriority="high"
+      class="aspect-video w-full rounded-2xl object-cover"
+    />
+
+    <div class="prose mt-10">
+      <Content />
+    </div>
+
+    <aside
+      class="card-elevated mt-14 flex flex-col gap-4 p-6 md:flex-row md:items-center md:justify-between md:p-8"
+      aria-labelledby="post-cta-title"
+    >
+      <h2 id="post-cta-title" class="text-lg font-semibold text-ink md:text-xl">
+        Precisa de audiodescrição ou acessibilidade no seu projeto?
+      </h2>
+      <a
+        href={whatsappUrl}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="btn-whatsapp inline-flex shrink-0 items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition-opacity"
+        aria-label="Falar no WhatsApp (abre em nova janela)"
+      >
+        Falar no WhatsApp
+      </a>
+    </aside>
+  </article>
+
+  {
+    otherPosts.length > 0 && (
+      <section class="border-t border-border bg-surface-muted py-14 md:py-20" aria-labelledby="outros-artigos-title">
+        <div class="container-page">
+          <h2 id="outros-artigos-title" class="font-display text-2xl font-semibold text-ink md:text-3xl">
+            Outros artigos
+          </h2>
+          <ul class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+            {
+              otherPosts.map((post) => (
+                <li>
+                  <a
+                    href={`/blog/${post.data.slug}`}
+                    class="card-elevated group flex h-full flex-col overflow-hidden transition-colors hover:border-primary/30"
+                  >
+                    <Image
+                      src={post.data.coverImage}
+                      alt={post.data.coverAlt}
+                      width={post.data.coverImage.width}
+                      height={post.data.coverImage.height}
+                      format="webp"
+                      quality="mid"
+                      loading="lazy"
+                      class="aspect-video w-full object-cover"
+                    />
+                    <div class="flex flex-1 flex-col gap-3 p-5">
+                      <time
+                        datetime={post.data.date.toISOString()}
+                        class="text-xs font-medium uppercase tracking-wide text-ink-soft"
+                      >
+                        {dateFormatter.format(post.data.date)}
+                      </time>
+                      <h3 class="text-lg font-semibold text-ink group-hover:text-primary">
+                        {post.data.title}
+                      </h3>
+                      <p class="line-clamp-3 text-sm leading-relaxed text-ink-soft">
+                        {post.data.excerpt}
+                      </p>
+                    </div>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+      </section>
+    )
+  }
+</BaseLayout>

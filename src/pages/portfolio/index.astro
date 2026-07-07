@@ -1,0 +1,87 @@
+---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { buildBreadcrumbJsonLd } from '../../lib/seo';
+
+const projects = (await getCollection('projects')).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: 'Início', path: '/' },
+  { name: 'Portfólio', path: '/portfolio' },
+]);
+---
+
+<BaseLayout
+  title="Portfólio de Projetos Acessíveis | Gangorra Audiodescrição"
+  description="Teatro, musicais, palhaçaria, audiobooks, eventos e campanhas com audiodescrição. Conheça projetos culturais que incluíram todos os públicos."
+  canonical="/portfolio"
+  jsonLd={[breadcrumbJsonLd]}
+>
+  <section class="gradient-hero py-12 md:py-16" aria-labelledby="portfolio-hero-title">
+    <div class="container-page">
+      <p class="eyebrow">Portfólio</p>
+      <h1
+        id="portfolio-hero-title"
+        class="mt-3 font-display text-3xl font-semibold text-ink md:text-4xl"
+      >
+        <span class="text-gradient">Projetos</span>
+      </h1>
+    </div>
+  </section>
+
+  <section class="py-14 md:py-20" aria-labelledby="portfolio-grid-title">
+    <div class="container-page">
+      <h2 id="portfolio-grid-title" class="sr-only">Todos os projetos</h2>
+      <ul class="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {
+          projects.map((project, index) => (
+            <li>
+              <article
+                id={`projeto-${project.data.slug}`}
+                class="card-elevated flex h-full flex-col overflow-hidden"
+              >
+                <div class="flex aspect-[4/3] items-center justify-center bg-black">
+                  <Image
+                    src={project.data.image}
+                    alt={project.data.alt}
+                    width={project.data.image.width}
+                    height={project.data.image.height}
+                    format="webp"
+                    quality="mid"
+                    loading={index === 0 ? 'eager' : 'lazy'}
+                    class="h-full w-full object-contain"
+                  />
+                </div>
+                <div class="flex flex-1 flex-col gap-3 p-5">
+                  <p class="text-xs font-medium uppercase tracking-wide text-primary">
+                    {project.data.category}
+                  </p>
+                  <h3 class="text-lg font-semibold text-ink">{project.data.title}</h3>
+                  <p class="text-sm leading-relaxed text-ink-soft">
+                    {project.data.description}
+                  </p>
+                  {
+                    project.data.link && (
+                      <a
+                        href={project.data.link.url}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="mt-auto text-sm font-semibold text-primary hover:underline"
+                        aria-label={`${project.data.link.label} — ${project.data.title} (abre em nova janela)`}
+                      >
+                        {project.data.link.label}
+                      </a>
+                    )
+                  }
+                </div>
+              </article>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</BaseLayout>

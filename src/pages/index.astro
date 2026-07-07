@@ -1,0 +1,65 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { buildAggregateRatingJsonLd } from '../lib/seo';
+import HeroSection from '../components/sections/HeroSection.astro';
+import ServicesSection from '../components/sections/ServicesSection.astro';
+import PortfolioSection from '../components/sections/PortfolioSection.astro';
+import ProofStrip from '../components/sections/ProofStrip.astro';
+import TestimonialsSection from '../components/sections/TestimonialsSection.astro';
+import CtaSection from '../components/sections/CtaSection.astro';
+
+const allServices = await getCollection('services');
+const featuredServices = allServices
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 6);
+
+const allProjects = await getCollection('projects');
+const featuredProjects = allProjects
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 6);
+
+const testimonials = await getCollection('testimonials');
+
+const aggregateRatingJsonLd = buildAggregateRatingJsonLd({
+  ratingValue: 5.0,
+  reviewCount: testimonials.length,
+  reviews: [
+    {
+      author: 'Lucas Souza',
+      datePublished: '2024-01-01',
+      reviewBody:
+        'Experiência excelente. A Gangorra Audiodescrição executa um trabalho de perfeição com muito cuidado em promover o melhor atendimento e o melhor trabalho com o público. Cuidado total em promover a diversidade e a melhor acessibilidade para os equipamentos culturais.',
+      ratingValue: 5,
+    },
+    {
+      author: 'Bruna Peres',
+      datePublished: '2024-01-01',
+      reviewBody:
+        'Acompanho o trabalho da Luciane e Ju Panissa há dois anos. Além de excelentes profissionais na área da AD, elas são muito generosas em ajudar os colegas de profissão. Definitivamente, a Gangorra oferece roteiros AD personalizados, visando um mundo cada vez mais inclusivo.',
+      ratingValue: 5,
+    },
+    {
+      author: 'Tuane Mello Carvalho',
+      datePublished: '2024-01-01',
+      reviewBody:
+        'A Gangorra realiza um trabalho excepcional com audiodescrição! O cuidado com os detalhes, a sensibilidade na narração e o compromisso com a acessibilidade tornam o serviço realmente inspirador.',
+      ratingValue: 5,
+    },
+  ],
+});
+---
+
+<BaseLayout
+  title="Audiodescrição e Acessibilidade Cultural e Digital | Gangorra"
+  description="Produtora referência em audiodescrição, acessibilidade digital, Braille, audiobooks e validação de acessibilidade. Inclusão real, cultural e digital."
+  canonical="/"
+  jsonLd={[aggregateRatingJsonLd]}
+>
+  <HeroSection />
+  <ServicesSection services={featuredServices} />
+  <PortfolioSection projects={featuredProjects} />
+  <ProofStrip />
+  <TestimonialsSection testimonials={testimonials} />
+  <CtaSection />
+</BaseLayout>

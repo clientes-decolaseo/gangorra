@@ -1,0 +1,28 @@
+---
+import { Image } from 'astro:assets';
+import { partners } from '../../lib/partners';
+---
+
+<section class="border-y border-border bg-surface-muted py-10 md:py-12" aria-labelledby="proof-strip-title">
+  <div class="container-page">
+    <h2 id="proof-strip-title" class="sr-only">Parceiros e clientes</h2>
+    <ul class="flex flex-wrap items-center justify-center gap-x-8 gap-y-6">
+      {
+        partners.map((partner) => (
+          <li>
+            <Image
+              src={partner.image}
+              alt={`Logo ${partner.name}`}
+              width={partner.width}
+              height={partner.height}
+              format="webp"
+              quality="mid"
+              loading="lazy"
+              class="partner-logo h-10 w-auto max-w-[8rem] object-contain"
+            />
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>

@@ -1,0 +1,56 @@
+---
+import { Image } from 'astro:assets';
+import { WHATSAPP_DEFAULT_URL } from '../../lib/nap';
+import logo from '../../assets/logo-gangorra.png';
+---
+
+<section class="gradient-hero py-12 md:py-20" aria-labelledby="hero-title">
+  <div class="container-page grid items-center gap-10 md:grid-cols-12 md:gap-12">
+    <div class="md:col-span-7">
+      <p class="eyebrow">● Gangorra Audiodescrição</p>
+      <h1
+        id="hero-title"
+        class="mt-4 font-display text-3xl font-semibold leading-tight text-ink sm:text-4xl md:text-5xl"
+      >
+        Audiodescrição e <span class="text-gradient">Acessibilidade Cultural e Digital</span>
+      </h1>
+      <p class="mt-5 max-w-xl text-base leading-relaxed text-ink-soft md:text-lg">
+        Produzimos audiodescrição, acessibilidade digital, Braille, audiobooks,
+        consultoria e validação de acessibilidade.
+      </p>
+      <div class="mt-8 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+        <a
+          href={WHATSAPP_DEFAULT_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-whatsapp inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition-opacity"
+          aria-label="Solicitar orçamento de audiodescrição (abre em nova janela)"
+        >
+          Solicitar orçamento de audiodescrição
+        </a>
+        <a
+          href="/servicos"
+          class="inline-flex items-center justify-center rounded-full border border-border bg-surface px-6 py-3 text-sm font-semibold text-ink transition-colors hover:bg-surface-muted"
+        >
+          Conhecer serviços
+        </a>
+      </div>
+      <p class="mt-5 text-sm text-ink-soft">Atendimento de Poá/SP para todo o Brasil.</p>
+    </div>
+
+    <div class="md:col-span-5">
+      <Image
+        src={logo}
+        alt="Gangorra Audiodescrição — logo"
+        width={520}
+        height={182}
+        format="webp"
+        quality="mid"
+        fetchpriority="high"
+        loading="eager"
+        decoding="async"
+        class="mx-auto w-full max-w-md md:max-w-none"
+      />
+    </div>
+  </div>
+</section>

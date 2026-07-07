@@ -1,0 +1,48 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import ServiceIcon from '../ui/ServiceIcon.astro';
+
+interface Props {
+  services: CollectionEntry<'services'>[];
+}
+
+const { services } = Astro.props;
+---
+
+<section class="py-14 md:py-20" aria-labelledby="servicos-title">
+  <div class="container-page">
+    <div class="mb-8 flex flex-col gap-3 sm:flex-row sm:items-end sm:justify-between">
+      <div>
+        <p class="eyebrow">Serviços</p>
+        <h2 id="servicos-title" class="mt-2 font-display text-2xl font-semibold text-ink md:text-3xl">
+          Serviços em destaque
+        </h2>
+      </div>
+      <a
+        href="/servicos"
+        class="text-sm font-semibold text-primary transition-colors hover:text-ink"
+      >
+        Ver todos os serviços →
+      </a>
+    </div>
+
+    <ul class="grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
+      {
+        services.map((service) => (
+          <li>
+            <a
+              href="/servicos"
+              class="card-elevated group flex h-full flex-col gap-3 p-5 transition-shadow hover:shadow-[var(--shadow-glow)]"
+            >
+              <ServiceIcon slug={service.data.slug} />
+              <h3 class="text-lg font-semibold text-ink group-hover:text-primary">
+                {service.data.title}
+              </h3>
+              <p class="text-sm leading-relaxed text-ink-soft">{service.data.summary}</p>
+            </a>
+          </li>
+        ))
+      }
+    </ul>
+  </div>
+</section>
