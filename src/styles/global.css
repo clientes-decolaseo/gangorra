@@ -1,10 +1,9 @@
 @import "tailwindcss";
-@import "@fontsource-variable/inter";
-@import "@fontsource-variable/fraunces";
+@import "./fonts.css";
 
 @theme {
-  --font-sans: "Inter Variable", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
-  --font-display: "Fraunces Variable", "Fraunces", "Inter", Georgia, serif;
+  --font-sans: "Inter Variable", "Inter Fallback", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-display: "Fraunces Variable", "Fraunces Fallback", Georgia, serif;
 
   --radius-sm: 0.5rem;
   --radius-md: 0.75rem;
@@ -62,11 +61,32 @@
 }
 
 .gradient-hero {
-  background-image: radial-gradient(
-    ellipse 80% 60% at 50% -10%,
-    var(--color-primary-soft),
-    transparent
-  );
+  background-color: var(--color-background);
+  background-image:
+    radial-gradient(
+      ellipse 50% 80% at -8% 45%,
+      oklch(0.94 0.035 240 / 0.85),
+      transparent 72%
+    ),
+    radial-gradient(
+      ellipse 50% 80% at 108% 45%,
+      oklch(0.94 0.035 240 / 0.85),
+      transparent 72%
+    ),
+    radial-gradient(
+      ellipse 80% 60% at 50% -10%,
+      var(--color-primary-soft),
+      transparent
+    );
+}
+
+.btn-primary {
+  background-color: var(--color-primary);
+  color: var(--color-primary-foreground);
+}
+
+.btn-primary:hover {
+  opacity: 0.92;
 }
 
 .snap-carousel {

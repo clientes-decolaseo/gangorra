@@ -1,5 +1,6 @@
 ---
 import '../styles/global.css';
+import frauncesLatinWoff2 from '@fontsource-variable/fraunces/files/fraunces-latin-wght-normal.woff2?url';
 import interLatinWoff2 from '@fontsource-variable/inter/files/inter-latin-wght-normal.woff2?url';
 import Header from '../components/layout/Header.astro';
 import Footer from '../components/layout/Footer.astro';
@@ -18,6 +19,10 @@ interface Props {
   ogType?: string;
   noindex?: boolean;
   jsonLd?: Record<string, unknown>[];
+  /** Pré-carrega Fraunces (fonte do H1) — ativar na home para LCP */
+  preloadDisplayFont?: boolean;
+  /** Pré-carrega Inter com prioridade baixa — evita CLS na seção de serviços da home */
+  preloadBodyFont?: boolean;
 }
 
 const {
@@ -28,6 +33,8 @@ const {
   ogType,
   noindex,
   jsonLd = [],
+  preloadDisplayFont = false,
+  preloadBodyFont = false,
 } = Astro.props;
 
 const seo = buildSeo({
@@ -49,6 +56,30 @@ const jsonLdBlocks = [organizationJsonLd, ...jsonLd];
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {
+      preloadDisplayFont && (
+        <link
+          rel="preload"
+          href={frauncesLatinWoff2}
+          as="font"
+          type="font/woff2"
+          crossorigin
+          fetchpriority="high"
+        />
+      )
+    }
+    {
+      preloadBodyFont && (
+        <link
+          rel="preload"
+          href={interLatinWoff2}
+          as="font"
+          type="font/woff2"
+          crossorigin
+          fetchpriority="low"
+        />
+      )
+    }
     <meta name="theme-color" content="#1e3a8a" />
     <meta name="generator" content={Astro.generator} />
 
@@ -77,42 +108,7 @@ const jsonLdBlocks = [organizationJsonLd, ...jsonLd];
     <meta name="twitter:description" content={seo.description} />
     <meta name="twitter:image" content={seo.ogImage} />
 
-    <link
-      rel="preload"
-      href={interLatinWoff2}
-      as="font"
-      type="font/woff2"
-      crossorigin
-    />
-
-    {
-      jsonLdBlocks.map((block) => (
-        <script
-          type="application/ld+json"
-          is:inline
-          set:html={JSON.stringify(block)}
-        />
-      ))
-    }
-
     <slot name="head" />
-
-    <script is:inline>
-      window.addEventListener('load', function () {
-        setTimeout(function () {
-          (function (w, d, s, l, i) {
-            w[l] = w[l] || [];
-            w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
-            var f = d.getElementsByTagName(s)[0],
-              j = d.createElement(s),
-              dl = l != 'dataLayer' ? '&l=' + l : '';
-            j.async = true;
-            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
-            f.parentNode.insertBefore(j, f);
-          })(window, document, 'script', 'dataLayer', 'GTM-TVTH3DHT');
-        }, 1500);
-      });
-    </script>
   </head>
   <body class="min-h-screen bg-background text-ink antialiased">
     <noscript>
@@ -131,5 +127,32 @@ const jsonLdBlocks = [organizationJsonLd, ...jsonLd];
     </main>
     <Footer />
     <WhatsAppFab />
+
+    {
+      jsonLdBlocks.map((block) => (
+        <script
+          type="application/ld+json"
+          is:inline
+          set:html={JSON.stringify(block)}
+        />
+      ))
+    }
+
+    <script is:inline defer>
+      window.addEventListener('load', function () {
+        setTimeout(function () {
+          (function (w, d, s, l, i) {
+            w[l] = w[l] || [];
+            w[l].push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+            var f = d.getElementsByTagName(s)[0],
+              j = d.createElement(s),
+              dl = l != 'dataLayer' ? '&l=' + l : '';
+            j.async = true;
+            j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+            f.parentNode.insertBefore(j, f);
+          })(window, document, 'script', 'dataLayer', 'GTM-TVTH3DHT');
+        }, 1500);
+      });
+    </script>
   </body>
 </html>

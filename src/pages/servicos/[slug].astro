@@ -12,11 +12,18 @@ import { buildWhatsAppUrl } from '../../lib/nap';
 import ProofStrip from '../../components/sections/ProofStrip.astro';
 
 export async function getStaticPaths() {
+  const dedicatedLandingSlugs = [
+    'audiodescricao-eventos',
+    'acessibilidade-digital',
+    'audiodescricao-teatro',
+  ];
   const pages = await getCollection('servicesDetail');
-  return pages.map((entry) => ({
-    params: { slug: entry.data.slug },
-    props: { entry },
-  }));
+  return pages
+    .filter((entry) => !dedicatedLandingSlugs.includes(entry.data.slug))
+    .map((entry) => ({
+      params: { slug: entry.data.slug },
+      props: { entry },
+    }));
 }
 
 interface Props {

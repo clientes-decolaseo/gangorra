@@ -2,17 +2,22 @@
 import { Image } from 'astro:assets';
 import { WHATSAPP_DEFAULT_URL } from '../../lib/nap';
 import logo from '../../assets/logo-gangorra.png';
+import heroImage from '../../assets/hero-home.png';
 ---
 
 <section class="gradient-hero py-12 md:py-20" aria-labelledby="hero-title">
   <div class="container-page grid items-center gap-10 md:grid-cols-12 md:gap-12">
     <div class="md:col-span-7">
-      <p class="eyebrow">● Gangorra Audiodescrição</p>
+      <p
+        class="inline-flex items-center gap-1.5 rounded-full bg-surface-muted px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-widest text-ink-soft"
+      >
+        <span aria-hidden="true">●</span> Gangorra Audiodescrição
+      </p>
       <h1
         id="hero-title"
         class="mt-4 font-display text-3xl font-semibold leading-tight text-ink sm:text-4xl md:text-5xl"
       >
-        Audiodescrição e <span class="text-gradient">Acessibilidade Cultural e Digital</span>
+        Audiodescrição e <span class="text-gradient">Acessibilidade</span> Cultural e Digital
       </h1>
       <p class="mt-5 max-w-xl text-base leading-relaxed text-ink-soft md:text-lg">
         Produzimos audiodescrição, acessibilidade digital, Braille, audiobooks,
@@ -23,10 +28,11 @@ import logo from '../../assets/logo-gangorra.png';
           href={WHATSAPP_DEFAULT_URL}
           target="_blank"
           rel="noopener noreferrer"
-          class="btn-whatsapp inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition-opacity"
+          class="btn-primary inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold shadow-glow transition-opacity"
           aria-label="Solicitar orçamento de audiodescrição (abre em nova janela)"
         >
           Solicitar orçamento de audiodescrição
+          <span aria-hidden="true">→</span>
         </a>
         <a
           href="/servicos"
@@ -38,19 +44,37 @@ import logo from '../../assets/logo-gangorra.png';
       <p class="mt-5 text-sm text-ink-soft">Atendimento de Poá/SP para todo o Brasil.</p>
     </div>
 
-    <div class="md:col-span-5">
-      <Image
-        src={logo}
-        alt="Gangorra Audiodescrição — logo"
-        width={250}
-        height={88}
-        format="webp"
-        quality="mid"
-        fetchpriority="high"
-        loading="eager"
-        decoding="async"
-        class="mx-auto h-auto w-auto max-w-md md:max-w-lg"
-      />
+    <div class="flex w-full flex-col items-center gap-6 md:col-span-5 md:items-end">
+      <div class="w-full max-w-[250px] md:max-w-[280px]">
+          <Image
+            src={logo}
+            alt="Gangorra Audiodescrição — logo"
+            width={1179}
+            height={912}
+            format="webp"
+            quality="mid"
+            loading="lazy"
+            decoding="async"
+            class="h-auto w-full"
+          />
+      </div>
+
+      <div class="w-full max-w-lg overflow-hidden rounded-3xl shadow-glow">
+        <div class="aspect-video w-full">
+          <Image
+            src={heroImage}
+            alt="Audiodescritora em cabine transmitindo narração ao vivo durante espetáculo de teatro, com plateia usando fones de ouvido"
+            width={960}
+            height={540}
+            format="webp"
+            quality="mid"
+            loading="eager"
+            decoding="async"
+            fetchpriority="low"
+            class="h-full w-full object-cover"
+          />
+        </div>
+      </div>
     </div>
   </div>
 </section>

@@ -13,12 +13,12 @@ import { partners } from '../../lib/partners';
             <Image
               src={partner.image}
               alt={`Logo ${partner.name}`}
-              width={256}
-              height={112}
+              width={partner.width}
+              height={partner.height}
               format="webp"
               quality="mid"
               loading="lazy"
-              class="partner-logo h-10 w-auto max-w-[8rem] object-contain"
+              class="partner-logo max-h-10 w-auto max-w-[8rem] object-contain"
             />
           </li>
         ))

@@ -29,8 +29,8 @@ function isCurrent(href: string): boolean {
       <Image
         src={logo}
         alt="Gangorra Audiodescrição"
-        width={250}
-        height={88}
+        width={1179}
+        height={912}
         format="webp"
         quality="mid"
         class="h-10 w-auto md:h-12"
@@ -172,7 +172,7 @@ function isCurrent(href: string): boolean {
   }
 </style>
 
-<script>
+<script is:inline defer>
   const header = document.querySelector('.site-header');
   const toggle = header?.querySelector('.nav-toggle');
   const menu = document.getElementById('nav-menu');

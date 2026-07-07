@@ -1,0 +1,357 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import {
+  buildBreadcrumbJsonLd,
+  buildFaqJsonLd,
+  ORG_ID,
+  SITE_URL,
+} from '../../lib/seo';
+
+const pagePath = '/servicos/audiodescricao-teatro';
+const pageUrl = `${SITE_URL}${pagePath}`;
+
+const title = 'Audiodescrição para Teatro e Espetáculos | Gangorra';
+const description =
+  'Torne seu espetáculo acessível a pessoas com deficiência visual. Audiodescrição profissional ao vivo para teatro, dança e eventos culturais. Todo o Brasil.';
+
+const whatsappUrl =
+  'https://api.whatsapp.com/send?phone=5511965707386&text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20de%20audiodescri%C3%A7%C3%A3o%20para%20um%20espet%C3%A1culo.';
+const whatsappAriaLabel =
+  'Solicitar orçamento de audiodescrição para espetáculo (abre em nova janela)';
+const ctaLabel = 'Solicitar orçamento para meu espetáculo';
+
+const whereWeWork = [
+  'Peças de teatro e espetáculos ao vivo',
+  'Dança, ópera e apresentações musicais',
+  'Museus, exposições e mostras',
+  'Cinema e sessões culturais acessíveis',
+  'Festivais e projetos culturais incentivados',
+];
+
+const howItWorks = [
+  {
+    title: 'Roteiro',
+    text: 'assistimos à obra e produzimos o roteiro de audiodescrição sob medida.',
+  },
+  {
+    title: 'Preparação',
+    text: 'ajustamos a narração ao ritmo e às pausas do espetáculo.',
+  },
+  {
+    title: 'Execução ao vivo',
+    text: 'audiodescritor narra em tempo real, com transmissão de áudio para o público [CONFIRMAR: equipamento próprio ou do espaço].',
+  },
+];
+
+const whyGangorra = [
+  'Equipe especialista, com formação e vivência em acessibilidade.',
+  'Validação por pessoas com deficiência, que garantem uma experiência real.',
+  'Experiência com projetos culturais e instituições de referência [CONFIRMAR nomes].',
+  'Atendimento em todo o Brasil, presencial ou remoto.',
+];
+
+const faqs = [
+  {
+    question: 'O que é audiodescrição em um espetáculo?',
+    answer:
+      'É a narração ao vivo de cenário, figurino, expressões e movimentos da obra, permitindo que pessoas com deficiência visual acompanhem o espetáculo pelo áudio.',
+  },
+  {
+    question: 'A audiodescrição atrapalha quem não usa o recurso?',
+    answer:
+      'Não. A narração é transmitida apenas para quem usa o receptor de áudio. O restante do público assiste normalmente.',
+  },
+  {
+    question: 'Vocês fazem audiodescrição para museus e exposições?',
+    answer:
+      'Sim. Além de teatro e dança, atuamos em museus, exposições, cinema e outros projetos culturais.',
+  },
+  {
+    question: 'A audiodescrição pode entrar no orçamento de um projeto cultural?',
+    answer:
+      'Sim. Projetos incentivados podem prever acessibilidade, e a audiodescrição pode ser incluída no orçamento do projeto.',
+  },
+  {
+    question: 'Vocês atendem em todo o Brasil?',
+    answer:
+      'Sim. Nossa base é em Poá/SP e atendemos espetáculos presenciais em todo o país, além de sessões online de forma remota.',
+  },
+];
+
+const breadcrumbJsonLd = buildBreadcrumbJsonLd([
+  { name: 'Início', path: '/' },
+  { name: 'Serviços', path: '/servicos' },
+  { name: 'Audiodescrição para teatro e espetáculos', path: pagePath },
+]);
+
+const serviceJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Service',
+  serviceType: 'Audiodescrição para teatro e espetáculos',
+  provider: { '@id': ORG_ID },
+  areaServed: 'BR',
+  availableChannel: {
+    '@type': 'ServiceChannel',
+    serviceUrl: pageUrl,
+  },
+  description:
+    'Audiodescrição profissional ao vivo para teatro, dança, museus e projetos culturais, em todo o Brasil.',
+};
+
+const faqJsonLd = buildFaqJsonLd(faqs);
+
+const otherServices = (await getCollection('servicesDetail'))
+  .filter((item) => item.data.slug !== 'audiodescricao-teatro')
+  .sort((a, b) => a.data.shortTitle.localeCompare(b.data.shortTitle, 'pt-BR'));
+---
+
+<BaseLayout
+  title={title}
+  description={description}
+  canonical={pagePath}
+  jsonLd={[breadcrumbJsonLd, serviceJsonLd, faqJsonLd]}
+>
+  <section class="gradient-hero py-12 md:py-16" aria-labelledby="servico-title">
+    <div class="container-page">
+      <nav class="text-sm text-ink-soft" aria-label="Breadcrumb">
+        <ol class="flex flex-wrap items-center gap-1">
+          <li><a href="/" class="hover:text-primary">Início</a></li>
+          <li aria-hidden="true">/</li>
+          <li><a href="/servicos" class="hover:text-primary">Serviços</a></li>
+          <li aria-hidden="true">/</li>
+          <li class="text-ink" aria-current="page">Audiodescrição para teatro e espetáculos</li>
+        </ol>
+      </nav>
+
+      <p class="eyebrow mt-6">Serviço</p>
+      <h1
+        id="servico-title"
+        class="mt-3 max-w-3xl font-display text-3xl font-semibold leading-tight text-ink md:text-4xl"
+      >
+        Audiodescrição para teatro e espetáculos
+      </h1>
+      <p class="mt-5 max-w-2xl text-base leading-relaxed text-ink-soft md:text-lg">
+        Torne seu espetáculo acessível a pessoas com deficiência visual. Audiodescrição profissional
+        ao vivo, para teatro, dança e cultura.
+      </p>
+
+      <div class="mt-8">
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-whatsapp inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition-opacity"
+          aria-label={whatsappAriaLabel}
+        >
+          {ctaLabel}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 md:py-20" aria-labelledby="o-que-e-title">
+    <div class="container-page max-w-3xl">
+      <h2 id="o-que-e-title" class="font-display text-xl font-semibold text-ink md:text-2xl">
+        O que é audiodescrição para teatro
+      </h2>
+      <p class="mt-4 text-sm leading-relaxed text-ink-soft md:text-base">
+        A audiodescrição transforma o que se vê em palavras. Um profissional narra cenário, figurino,
+        expressões e movimentos, sem atrapalhar o texto e a trilha da obra. Pessoas cegas ou com
+        baixa visão acompanham o espetáculo pelo áudio. É o recurso que garante acesso à cultura,
+        alinhado à Lei Brasileira de Inclusão (Lei nº 13.146/2015).
+      </p>
+    </div>
+  </section>
+
+  <section
+    class="border-t border-border bg-surface-muted py-14 md:py-20"
+    aria-labelledby="onde-atuamos-title"
+  >
+    <div class="container-page max-w-3xl">
+      <h2 id="onde-atuamos-title" class="font-display text-2xl font-semibold text-ink md:text-3xl">
+        Onde fazemos audiodescrição cultural
+      </h2>
+      <ul class="mt-6 flex flex-col gap-3">
+        {
+          whereWeWork.map((item) => (
+            <li class="flex items-start gap-3 text-sm leading-relaxed text-ink-soft md:text-base">
+              <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+              {item}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="py-14 md:py-20" aria-labelledby="como-funciona-title">
+    <div class="container-page">
+      <h2 id="como-funciona-title" class="font-display text-2xl font-semibold text-ink md:text-3xl">
+        Como funciona
+      </h2>
+      <ol class="mt-8 grid gap-4">
+        {
+          howItWorks.map((step, index) => (
+            <li class="card-elevated flex gap-4 p-5">
+              <span class="mt-0.5 shrink-0 text-primary" aria-hidden="true">
+                <svg
+                  width="22"
+                  height="22"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  stroke-width="2"
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                >
+                  <path d="M20 6 9 17l-5-5" />
+                </svg>
+              </span>
+              <div>
+                <p class="text-xs font-semibold uppercase tracking-widest text-primary">
+                  Passo {index + 1} — {step.title}
+                </p>
+                <p class="mt-2 text-sm leading-relaxed text-ink-soft md:text-base">{step.text}</p>
+              </div>
+            </li>
+          ))
+        }
+      </ol>
+    </div>
+  </section>
+
+  <section
+    class="border-t border-border bg-surface-muted py-14 md:py-20"
+    aria-labelledby="por-que-gangorra-title"
+  >
+    <div class="container-page max-w-3xl">
+      <h2 id="por-que-gangorra-title" class="font-display text-2xl font-semibold text-ink md:text-3xl">
+        Por que escolher a Gangorra
+      </h2>
+      <ul class="mt-6 flex flex-col gap-3">
+        {
+          whyGangorra.map((item) => (
+            <li class="flex items-start gap-3 text-sm leading-relaxed text-ink-soft md:text-base">
+              <span class="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-primary" aria-hidden="true" />
+              {item}
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+
+  <section class="py-14 md:py-20" aria-labelledby="viabilizacao-title">
+    <div class="container-page max-w-3xl">
+      <h2 id="viabilizacao-title" class="font-display text-2xl font-semibold text-ink md:text-3xl">
+        Acessibilidade em projetos culturais
+      </h2>
+      <p class="mt-4 text-sm leading-relaxed text-ink-soft md:text-base">
+        Projetos incentivados podem e devem prever acessibilidade. A audiodescrição pode ser incluída
+        no orçamento do projeto cultural. Orientamos sobre como viabilizar esse recurso [CONFIRMAR se
+        a Gangorra apoia essa etapa].
+      </p>
+    </div>
+  </section>
+
+  <section
+    class="border-t border-border bg-surface-muted py-14 md:py-20"
+    aria-labelledby="atendimento-title"
+  >
+    <div class="container-page max-w-3xl">
+      <h2 id="atendimento-title" class="font-display text-2xl font-semibold text-ink md:text-3xl">
+        Atendemos todo o Brasil
+      </h2>
+      <p class="mt-4 text-sm leading-relaxed text-ink-soft md:text-base">
+        Da nossa base em Poá/SP para todo o país. Espetáculos presenciais sob agenda e sessões online
+        com audiodescrição remota.
+      </p>
+    </div>
+  </section>
+
+  <section class="py-14 md:py-20" aria-labelledby="faq-title">
+    <div class="container-page max-w-3xl">
+      <h2 id="faq-title" class="font-display text-2xl font-semibold text-ink md:text-3xl">
+        Perguntas frequentes
+      </h2>
+      <div class="mt-8 flex flex-col gap-3">
+        {
+          faqs.map((faq) => (
+            <details class="card-elevated group">
+              <summary class="cursor-pointer list-none p-5 font-semibold text-ink marker:content-none [&::-webkit-details-marker]:hidden">
+                <span class="flex items-center justify-between gap-4">
+                  {faq.question}
+                  <svg
+                    class="shrink-0 text-primary transition-transform group-open:rotate-180"
+                    width="20"
+                    height="20"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="2"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    aria-hidden="true"
+                  >
+                    <path d="m6 9 6 6 6-6" />
+                  </svg>
+                </span>
+              </summary>
+              <div class="border-t border-border px-5 pb-5 pt-4 text-sm leading-relaxed text-ink-soft">
+                {faq.answer}
+              </div>
+            </details>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <section
+    class="border-t border-border bg-surface-muted py-14 md:py-20"
+    aria-labelledby="cta-servico-title"
+  >
+    <div class="container-page">
+      <div class="rounded-3xl border border-border bg-surface px-6 py-10 text-center md:px-12 md:py-14">
+        <h2 id="cta-servico-title" class="font-display text-2xl font-semibold text-ink md:text-3xl">
+          Vamos tornar seu espetáculo acessível?
+        </h2>
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-whatsapp mt-8 inline-flex items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition-opacity"
+          aria-label={whatsappAriaLabel}
+        >
+          {ctaLabel}
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <section class="border-t border-border pb-16 md:pb-24" aria-labelledby="outros-servicos-title">
+    <div class="container-page">
+      <h2 id="outros-servicos-title" class="font-display text-2xl font-semibold text-ink md:text-3xl">
+        Outros serviços
+      </h2>
+      <ul class="mt-8 grid gap-4 md:grid-cols-3">
+        {
+          otherServices.map((other) => (
+            <li>
+              <a
+                href={`/servicos/${other.data.slug}`}
+                class="card-elevated group flex h-full flex-col gap-3 p-5 transition-shadow hover:shadow-[var(--shadow-glow)]"
+              >
+                <h3 class="text-base font-semibold text-ink group-hover:text-primary">
+                  {other.data.shortTitle}
+                </h3>
+                <p class="text-sm leading-relaxed text-ink-soft">{other.data.lede}</p>
+              </a>
+            </li>
+          ))
+        }
+      </ul>
+    </div>
+  </section>
+</BaseLayout>
