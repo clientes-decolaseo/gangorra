@@ -7,6 +7,7 @@ import {
   ORG_ID,
   SITE_URL,
 } from '../../lib/seo';
+import { buildWhatsAppUrl } from '../../lib/nap';
 
 const pagePath = '/servicos/acessibilidade-digital';
 const pageUrl = `${SITE_URL}${pagePath}`;
@@ -15,8 +16,9 @@ const title = 'Acessibilidade Digital para Sites e Apps | Gangorra';
 const description =
   'Consultoria em acessibilidade digital para conformidade com WCAG e eMAG. Auditoria, plano de adequação e validação por pessoas com deficiência. Todo o Brasil.';
 
-const whatsappUrl =
-  'https://api.whatsapp.com/send?phone=5511965707386&text=Ol%C3%A1!%20Gostaria%20de%20um%20diagn%C3%B3stico%20de%20acessibilidade%20digital%20para%20meu%20site%20ou%20app.';
+const whatsappUrl = buildWhatsAppUrl(
+  'Olá! Gostaria de um diagnóstico de acessibilidade digital para meu site ou app.',
+);
 const whatsappAriaLabel =
   'Solicitar diagnóstico de acessibilidade digital (abre em nova janela)';
 const ctaLabel = 'Solicitar diagnóstico de acessibilidade';

@@ -44,22 +44,20 @@ import heroImage from '../../assets/hero-home.png';
       <p class="mt-5 text-sm text-ink-soft">Atendimento de Poá/SP para todo o Brasil.</p>
     </div>
 
-    <div class="flex w-full flex-col items-center gap-6 md:col-span-5 md:items-end">
-      <div class="w-full max-w-[250px] md:max-w-[280px]">
-          <Image
-            src={logo}
-            alt="Gangorra Audiodescrição — logo"
-            width={1179}
-            height={912}
-            format="webp"
-            quality="mid"
-            loading="lazy"
-            decoding="async"
-            class="h-auto w-full"
-          />
-      </div>
+    <div class="mx-auto flex w-full max-w-lg flex-col items-center gap-6 md:col-span-5 md:mx-0 md:ml-auto">
+      <Image
+        src={logo}
+        alt="Gangorra Audiodescrição — logo"
+        width={1179}
+        height={912}
+        format="webp"
+        quality="mid"
+        loading="lazy"
+        decoding="async"
+        class="h-auto w-full"
+      />
 
-      <div class="w-full max-w-lg overflow-hidden rounded-3xl shadow-glow">
+      <div class="w-full overflow-hidden rounded-3xl shadow-glow">
         <div class="aspect-video w-full">
           <Image
             src={heroImage}

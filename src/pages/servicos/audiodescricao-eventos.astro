@@ -7,6 +7,7 @@ import {
   ORG_ID,
   SITE_URL,
 } from '../../lib/seo';
+import { buildWhatsAppUrl } from '../../lib/nap';
 
 const pagePath = '/servicos/audiodescricao-eventos';
 const pageUrl = `${SITE_URL}${pagePath}`;
@@ -15,8 +16,9 @@ const title = 'Audiodescrição para Eventos ao Vivo | Gangorra';
 const description =
   'Torne seu evento acessível a pessoas com deficiência visual. Audiodescrição profissional ao vivo, presencial ou remota, em todo o Brasil. Solicite um orçamento.';
 
-const whatsappUrl =
-  'https://api.whatsapp.com/send?phone=5511965707386&text=Ol%C3%A1!%20Gostaria%20de%20um%20or%C3%A7amento%20de%20audiodescri%C3%A7%C3%A3o%20para%20um%20evento.';
+const whatsappUrl = buildWhatsAppUrl(
+  'Olá! Gostaria de um orçamento de audiodescrição para um evento.',
+);
 const whatsappAriaLabel =
   'Solicitar orçamento de audiodescrição para eventos (abre em nova janela)';
 const ctaLabel = 'Solicitar orçamento para meu evento';

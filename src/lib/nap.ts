@@ -5,17 +5,21 @@ export const NAP = {
   region: "SP",
   postalCode: "08651-040",
   country: "BR",
-  phoneDisplay: "(11) 96570-7386",
-  phoneE164: "+5511965707386",
+  phoneDisplay: "(12) 98102-0340",
+  phoneE164: "+5512981020340",
   email: "contato@gangorraaudiodescricao.com.br",
   instagram: "https://www.instagram.com/gangorra_audiodescricao/",
   googleBusinessProfile:
     "https://www.google.com/maps?cid=12366833483916118600",
 } as const;
 
+const WHATSAPP_PHONE_DIGITS = NAP.phoneE164.replace(/\D/g, "");
+
 export const WHATSAPP_DEFAULT_URL =
-  "https://api.whatsapp.com/send?phone=5511965707386&text=Ol%C3%A1%2C%20tudo%20bem%3F%20Estou%20no%20site%20do%20Gangorra%20e%20gostaria%20de%20informa%C3%A7%C3%B5es.";
+  `https://api.whatsapp.com/send?phone=${WHATSAPP_PHONE_DIGITS}&text=${encodeURIComponent(
+    "Olá, tudo bem? Estou no site do Gangorra e gostaria de informações.",
+  )}`;
 
 export function buildWhatsAppUrl(message: string): string {
-  return `https://api.whatsapp.com/send?phone=5511965707386&text=${encodeURIComponent(message)}`;
+  return `https://api.whatsapp.com/send?phone=${WHATSAPP_PHONE_DIGITS}&text=${encodeURIComponent(message)}`;
 }
