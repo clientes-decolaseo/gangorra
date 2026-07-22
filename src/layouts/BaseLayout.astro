@@ -113,6 +113,7 @@ const jsonLdBlocks = [organizationJsonLd, ...jsonLd];
     <slot name="head" />
   </head>
   <body class="min-h-screen bg-background text-ink antialiased">
+    <a href="#main-content" class="skip-link">Pular para o conteúdo</a>
     <noscript>
       <iframe
         src="https://www.googletagmanager.com/ns.html?id=GTM-TVTH3DHT"
@@ -124,7 +125,7 @@ const jsonLdBlocks = [organizationJsonLd, ...jsonLd];
     </noscript>
 
     <Header />
-    <main id="conteudo-principal">
+    <main id="main-content" tabindex="-1">
       <slot />
     </main>
     <Footer />
