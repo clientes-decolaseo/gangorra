@@ -20,7 +20,7 @@ const { projects } = Astro.props;
       </div>
       <a
         href="/portfolio"
-        class="text-sm font-semibold text-primary transition-colors hover:text-ink"
+        class="inline-flex min-h-11 items-center py-2 text-sm font-semibold text-primary transition-colors hover:text-ink"
       >
         Ver portfólio completo →
       </a>
@@ -60,7 +60,7 @@ const { projects } = Astro.props;
                       href={project.data.link.url}
                       target="_blank"
                       rel="noopener noreferrer"
-                      class="mt-1 text-sm font-semibold text-primary hover:underline"
+                      class="mt-1 inline-flex min-h-11 items-center py-2 text-sm font-semibold text-primary hover:underline"
                       aria-label={`${project.data.link.label} — ${project.data.title} (abre em nova janela)`}
                     >
                       {project.data.link.label}

@@ -48,8 +48,35 @@
   transition: top 0.2s ease;
 }
 
-.skip-link:focus {
+.skip-link:focus,
+.skip-link:focus-visible {
   top: 1rem;
+  outline: 3px solid var(--color-primary-foreground);
+  outline-offset: 2px;
+}
+
+/* WCAG 2.4.7 — foco visível só na navegação por teclado */
+*:focus-visible {
+  outline: 3px solid var(--color-primary);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
+
+footer :focus-visible,
+.bg-primary :focus-visible,
+[class*="bg-primary"] :focus-visible,
+.btn-whatsapp:focus-visible,
+.btn-primary:focus-visible,
+.whatsapp-fab:focus-visible {
+  outline-color: #ffffff;
+}
+
+summary:focus-visible {
+  border-radius: var(--radius-lg);
+}
+
+a.card-elevated:focus-visible {
+  border-radius: var(--radius-2xl);
 }
 
 @media (min-width: 768px) {

@@ -41,13 +41,13 @@ const year = new Date().getFullYear();
         <h2 class="mb-4 text-sm font-semibold uppercase tracking-widest text-ink">
           Navegação
         </h2>
-        <ul class="flex flex-col gap-2">
+        <ul class="flex flex-col">
           {
             footerNav.map((item) => (
               <li>
                 <a
                   href={item.href}
-                  class="text-sm text-ink-soft transition-colors hover:text-primary"
+                  class="block py-2.5 text-sm text-ink-soft transition-colors hover:text-primary"
                 >
                   {item.label}
                 </a>
@@ -61,8 +61,8 @@ const year = new Date().getFullYear();
         <h2 class="mb-4 text-sm font-semibold uppercase tracking-widest text-ink">
           Contato
         </h2>
-        <address class="flex flex-col gap-4 not-italic">
-          <p class="flex items-start gap-3 text-sm text-ink-soft">
+        <address class="flex flex-col not-italic">
+          <p class="flex items-start gap-3 py-2 text-sm text-ink-soft">
             <svg class="mt-0.5 shrink-0 text-primary" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0" />
               <circle cx="12" cy="10" r="3" />
@@ -74,24 +74,26 @@ const year = new Date().getFullYear();
             </span>
           </p>
 
-          <p class="flex items-center gap-3 text-sm">
+          <a
+            href={`tel:${NAP.phoneE164}`}
+            class="flex min-h-11 items-center gap-3 py-2 text-sm text-ink-soft transition-colors hover:text-primary"
+          >
             <svg class="shrink-0 text-primary" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" />
             </svg>
-            <a href={`tel:${NAP.phoneE164}`} class="text-ink-soft transition-colors hover:text-primary">
-              {NAP.phoneDisplay}
-            </a>
-          </p>
+            <span>{NAP.phoneDisplay}</span>
+          </a>
 
-          <p class="flex items-center gap-3 text-sm">
+          <a
+            href={`mailto:${NAP.email}`}
+            class="flex min-h-11 items-center gap-3 py-2 text-sm text-ink-soft transition-colors hover:text-primary"
+          >
             <svg class="shrink-0 text-primary" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
               <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
               <rect x="2" y="4" width="20" height="16" rx="2" />
             </svg>
-            <a href={`mailto:${NAP.email}`} class="text-ink-soft transition-colors hover:text-primary">
-              {NAP.email}
-            </a>
-          </p>
+            <span>{NAP.email}</span>
+          </a>
         </address>
       </div>
     </div>

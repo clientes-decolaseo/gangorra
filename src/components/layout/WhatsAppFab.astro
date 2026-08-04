@@ -23,6 +23,9 @@ import { WHATSAPP_DEFAULT_URL } from '../../lib/nap';
     display: flex;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
     width: 3.5rem;
     height: 3.5rem;
     border-radius: 9999px;
@@ -35,5 +38,10 @@ import { WHATSAPP_DEFAULT_URL } from '../../lib/nap';
   .whatsapp-fab:hover {
     opacity: 0.92;
     transform: scale(1.04);
+  }
+
+  .whatsapp-fab:focus-visible {
+    outline: 3px solid #ffffff;
+    outline-offset: 3px;
   }
 </style>

@@ -19,7 +19,7 @@ const mailtoBody = encodeURIComponent(
 const mailtoUrl = `mailto:${NAP.email}?subject=${mailtoSubject}&body=${mailtoBody}`;
 
 const inputClass =
-  'w-full rounded-lg border border-border bg-surface px-4 py-3 text-sm text-ink transition-colors placeholder:text-ink-soft/60 focus:border-primary focus:outline-none focus:ring-2 focus:ring-primary/20';
+  'w-full rounded-lg border border-border bg-surface px-4 py-3 text-sm text-ink transition-colors placeholder:text-ink-soft/60 focus-visible:border-primary focus-visible:ring-2 focus-visible:ring-primary/20';
 ---
 
 <BaseLayout
@@ -287,7 +287,10 @@ const inputClass =
                 </span>
               </p>
 
-              <p class="flex items-center gap-3 text-sm">
+              <a
+                href={`tel:${NAP.phoneE164}`}
+                class="flex min-h-11 items-center gap-3 py-2 text-sm text-ink-soft transition-colors hover:text-primary"
+              >
                 <svg
                   class="shrink-0 text-primary"
                   width="20"
@@ -302,15 +305,13 @@ const inputClass =
                 >
                   <path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384" />
                 </svg>
-                <a
-                  href={`tel:${NAP.phoneE164}`}
-                  class="text-ink-soft transition-colors hover:text-primary"
-                >
-                  {NAP.phoneDisplay}
-                </a>
-              </p>
+                <span>{NAP.phoneDisplay}</span>
+              </a>
 
-              <p class="flex items-center gap-3 text-sm">
+              <a
+                href={`mailto:${NAP.email}`}
+                class="flex min-h-11 items-center gap-3 py-2 text-sm text-ink-soft transition-colors hover:text-primary"
+              >
                 <svg
                   class="shrink-0 text-primary"
                   width="20"
@@ -326,13 +327,8 @@ const inputClass =
                   <path d="m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7" />
                   <rect x="2" y="4" width="20" height="16" rx="2" />
                 </svg>
-                <a
-                  href={`mailto:${NAP.email}`}
-                  class="text-ink-soft transition-colors hover:text-primary break-all"
-                >
-                  {NAP.email}
-                </a>
-              </p>
+                <span class="break-all">{NAP.email}</span>
+              </a>
             </address>
           </div>
 
@@ -364,7 +360,7 @@ const inputClass =
               href={mapLinkUrl}
               target="_blank"
               rel="noopener noreferrer"
-              class="font-medium text-primary transition-colors hover:underline"
+              class="inline-flex min-h-11 items-center py-2 font-medium text-primary transition-colors hover:underline"
             >
               Abrir no Google Maps
             </a>

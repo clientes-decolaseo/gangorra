@@ -24,6 +24,13 @@ function isCurrent(href: string): boolean {
 ---
 
 <header class="site-header">
+  <input
+    type="checkbox"
+    id="nav-toggle"
+    class="nav-toggle sr-only"
+    aria-label="Abrir menu de navegação"
+  />
+
   <div class="container-page flex h-16 items-center justify-between gap-4 md:h-20">
     <a href="/" class="shrink-0" aria-label="Gangorra Audiodescrição — página inicial">
       <Image
@@ -37,23 +44,17 @@ function isCurrent(href: string): boolean {
       />
     </a>
 
-    <button
-      type="button"
-      class="nav-toggle md:hidden"
-      aria-expanded="false"
-      aria-controls="nav-menu"
-      aria-label="Abrir menu"
-    >
-      <svg class="icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <label for="nav-toggle" class="nav-toggle-label md:hidden" aria-hidden="true">
+      <svg class="icon-open" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <line x1="4" x2="20" y1="6" y2="6" />
         <line x1="4" x2="20" y1="12" y2="12" />
         <line x1="4" x2="20" y1="18" y2="18" />
       </svg>
-      <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <svg class="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
         <path d="M18 6 6 18" />
         <path d="m6 6 12 12" />
       </svg>
-    </button>
+    </label>
 
     <nav class="desktop-nav hidden items-center gap-1 md:flex" aria-label="Navegação principal">
       {
@@ -131,21 +132,23 @@ function isCurrent(href: string): boolean {
     box-shadow: var(--shadow-soft);
   }
 
-  .nav-toggle {
+  .nav-toggle-label {
     display: flex;
     align-items: center;
     justify-content: center;
+    box-sizing: border-box;
+    min-width: 2.75rem;
+    min-height: 2.75rem;
     width: 2.75rem;
     height: 2.75rem;
-    border: none;
+    padding: 0.625rem;
     border-radius: 0.75rem;
-    background-color: transparent;
     color: var(--color-ink);
     cursor: pointer;
     transition: background-color 0.15s ease;
   }
 
-  .nav-toggle:hover {
+  .nav-toggle-label:hover {
     background-color: var(--color-surface-muted);
   }
 
@@ -159,36 +162,21 @@ function isCurrent(href: string): boolean {
     background-color: var(--color-surface);
   }
 
-  .site-header.is-nav-open .mobile-nav {
+  #nav-toggle:checked ~ .mobile-nav {
     display: block;
   }
 
-  .site-header.is-nav-open .icon-open {
+  #nav-toggle:checked ~ .container-page .nav-toggle-label .icon-open {
     display: none;
   }
 
-  .site-header.is-nav-open .icon-close {
+  #nav-toggle:checked ~ .container-page .nav-toggle-label .icon-close {
     display: block;
   }
-</style>
 
-<script is:inline defer>
-  const header = document.querySelector('.site-header');
-  const toggle = header?.querySelector('.nav-toggle');
-  const menu = document.getElementById('nav-menu');
-
-  function setNavOpen(isOpen) {
-    header?.classList.toggle('is-nav-open', isOpen);
-    toggle?.setAttribute('aria-expanded', String(isOpen));
-    toggle?.setAttribute('aria-label', isOpen ? 'Fechar menu' : 'Abrir menu');
+  #nav-toggle:focus-visible ~ .container-page .nav-toggle-label {
+    outline: 3px solid var(--color-primary);
+    outline-offset: 2px;
+    border-radius: 4px;
   }
-
-  toggle?.addEventListener('click', () => {
-    const isOpen = !header?.classList.contains('is-nav-open');
-    setNavOpen(isOpen);
-  });
-
-  menu?.querySelectorAll('a').forEach((link) => {
-    link.addEventListener('click', () => setNavOpen(false));
-  });
-</script>
+</style>
