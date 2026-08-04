@@ -1,6 +1,6 @@
 import { NAP } from "./nap";
 
-export const SITE_URL = "https://www.gangorraaudiodescricao.com.br";
+export const SITE_URL = "https://gangorraaudiodescricao.com.br";
 export const ORG_ID = `${SITE_URL}/#organization`;
 export const WEBSITE_ID = `${SITE_URL}/#website`;
 

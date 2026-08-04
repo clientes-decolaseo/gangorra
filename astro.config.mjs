@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   output: 'static',
-  site: 'https://www.gangorraaudiodescricao.com.br',
+  site: 'https://gangorraaudiodescricao.com.br',
   build: {
     inlineStylesheets: 'always',
   },
