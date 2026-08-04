@@ -2,6 +2,7 @@
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCoverFilter } from '../../lib/coverFilters';
 import { buildBreadcrumbJsonLd } from '../../lib/seo';
 
 const posts = (await getCollection('posts')).sort(
@@ -54,6 +55,7 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
                   quality="mid"
                   loading={index === 0 ? 'eager' : 'lazy'}
                   class="aspect-video w-full object-cover"
+                  style={`filter: ${getCoverFilter(index)}`}
                 />
                 <div class="flex flex-1 flex-col gap-3 p-5">
                   <time

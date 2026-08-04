@@ -2,7 +2,7 @@
 slug: "guia-de-equipamentos-para-audiodescricao"
 title: "Guia de Equipamentos para Audiodescrição: O que é Essencial em Eventos e Produções"
 excerpt: "Transmissor, receptores, cabine: entenda os equipamentos por trás de uma audiodescrição ao vivo bem executada, e quando faz mais sentido alugar do que comprar."
-coverImage: "../../assets/originals/cabine-1.jpg" # TODO: trocar por foto dedicada ao tema
+coverImage: "../../assets/originals/cabine-4.jpg" # TODO: trocar por foto dedicada ao tema
 coverAlt: "Cabine e equipamento técnico de transmissão de audiodescrição."
 date: 2025-12-22
 seoTitle: "Guia de Equipamentos para Audiodescrição | Gangorra"

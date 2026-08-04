@@ -2,7 +2,7 @@
 slug: "audiodescricao-em-espetaculos-ao-vivo-por-que-acessibilidade-nao-e-acessorio"
 title: "Audiodescrição em Espetáculos ao Vivo: Por Que Acessibilidade Não É Acessório"
 excerpt: "Acessibilidade em teatro e espetáculos ao vivo costuma ser tratada como extra opcional. Entenda por que ela deveria ser parte estrutural de qualquer produção cultural pública."
-coverImage: "../../assets/originals/cabine-2.jpg" # TODO: trocar por foto dedicada ao tema
+coverImage: "../../assets/originals/cabine-3.jpg" # TODO: trocar por foto dedicada ao tema
 coverAlt: "Cabine de audiodescrição usada em espetáculos ao vivo."
 date: 2025-05-15
 seoTitle: "Audiodescrição em Espetáculos ao Vivo | Gangorra Audiodescrição"

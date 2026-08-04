@@ -2,7 +2,7 @@
 slug: "como-o-audiodescritor-garante-acessibilidade"
 title: "Como o Audiodescritor Garante Acessibilidade de Verdade"
 excerpt: "Ser audiodescritor vai muito além de narrar o que aparece na tela. Entenda o papel técnico e humano por trás de uma audiodescrição que realmente funciona."
-coverImage: "../../assets/originals/cabine-3.jpg" # TODO: trocar por foto dedicada ao tema
+coverImage: "../../assets/originals/hero-audience.jpg" # TODO: trocar por foto dedicada ao tema
 coverAlt: "Audiodescritor em cabine durante narração ao vivo."
 date: 2026-01-12
 seoTitle: "Como o Audiodescritor Garante Acessibilidade | Gangorra"

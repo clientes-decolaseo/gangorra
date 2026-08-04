@@ -2,7 +2,7 @@
 slug: "legislacao-de-acessibilidade-digital"
 title: "Legislação de Acessibilidade Digital: LBI, Nova ABNT 17225 e os Riscos da Não Conformidade"
 excerpt: "A acessibilidade digital deixou de ser boa prática e virou obrigação legal no Brasil. Entenda o que diz a LBI, a nova norma ABNT NBR 17225 e os riscos de ignorar essas regras."
-coverImage: "../../assets/originals/site-2.jpg" # TODO: trocar por foto dedicada ao tema
+coverImage: "../../assets/originals/cabine-3.jpg" # TODO: trocar por foto dedicada ao tema
 coverAlt: "Interface digital representando conformidade e estrutura técnica."
 date: 2025-12-15
 seoTitle: "Legislação de Acessibilidade Digital no Brasil (LBI, ABNT 17225) | Gangorra"

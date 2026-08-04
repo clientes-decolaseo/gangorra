@@ -2,7 +2,7 @@
 slug: "como-fazer-audiodescricao"
 title: "Como Fazer Audiodescrição: Um Guia Passo a Passo para Iniciantes"
 excerpt: "Os fundamentos de quem está começando a estudar audiodescrição: o que observar, como priorizar informação e os erros mais comuns de quem está aprendendo."
-coverImage: "../../assets/originals/cabine-1.jpg" # TODO: trocar por foto dedicada ao tema
+coverImage: "../../assets/originals/cabine-4.jpg" # TODO: trocar por foto dedicada ao tema
 coverAlt: "Cabine de audiodescrição com equipamento de narração."
 date: 2025-10-06
 seoTitle: "Como Fazer Audiodescrição: Guia para Iniciantes | Gangorra"

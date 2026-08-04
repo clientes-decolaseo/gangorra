@@ -2,7 +2,7 @@
 slug: "importancia-da-audiodescricao-no-teatro"
 title: "A Importância da Audiodescrição no Teatro: Inclusão e Acessibilidade para Todos"
 excerpt: "O teatro é feito de presença, gesto e expressão — elementos profundamente visuais. Entenda por que a audiodescrição é essencial para que esse tipo de arte alcance todos os públicos."
-coverImage: "../../assets/originals/cabine-3.jpg" # TODO: trocar por foto dedicada ao tema
+coverImage: "../../assets/originals/locacao.jpg" # TODO: trocar por foto dedicada ao tema
 coverAlt: "Cabine técnica usada para narração de audiodescrição em teatro."
 date: 2025-11-03
 seoTitle: "Importância da Audiodescrição no Teatro | Gangorra Audiodescrição"

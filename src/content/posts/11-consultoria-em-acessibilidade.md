@@ -2,7 +2,7 @@
 slug: "consultoria-em-acessibilidade"
 title: "Consultoria em Acessibilidade: Como Ter um Plano Estratégico (360º) para a Inclusão Digital e Cultural"
 excerpt: "Corrigir problemas de acessibilidade um a um custa caro e não resolve a raiz. Entenda por que consultoria estratégica é o caminho mais eficiente para inclusão real."
-coverImage: "../../assets/originals/site-3.jpg" # TODO: trocar por foto dedicada ao tema
+coverImage: "../../assets/originals/cabine-2.jpg" # TODO: trocar por foto dedicada ao tema
 coverAlt: "Ambiente de trabalho colaborativo em projeto digital."
 date: 2025-12-08
 seoTitle: "Consultoria em Acessibilidade 360º | Gangorra Audiodescrição"

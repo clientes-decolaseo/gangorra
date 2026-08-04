@@ -2,7 +2,7 @@
 slug: "audiodescricao-em-filmes"
 title: "Audiodescrição em Filmes: Transformando a Experiência Cinematográfica"
 excerpt: "O cinema é feito de imagem, mas não precisa ser exclusivo de quem enxerga. Veja como a audiodescrição em filmes funciona e por que ainda é um recurso raro nas salas brasileiras."
-coverImage: "../../assets/originals/locacao.jpg" # TODO: trocar por foto dedicada ao tema
+coverImage: "../../assets/originals/hero-audience.png" # TODO: trocar por foto dedicada ao tema
 coverAlt: "Ambiente de locação de equipamentos de audiodescrição."
 date: 2025-10-20
 seoTitle: "Audiodescrição em Filmes: Como Funciona | Gangorra Audiodescrição"

@@ -2,7 +2,7 @@
 slug: "validacao-de-acessibilidade-digital"
 title: "Validação de Acessibilidade Digital: Por que Auditar seu Site (WCAG) Garante Inclusão e Conformidade Legal"
 excerpt: "Um site pode parecer acessível e não funcionar de verdade para quem usa leitor de tela. Entenda por que validar contra o WCAG é essencial, não opcional."
-coverImage: "../../assets/originals/cabine-2.jpg" # TODO: trocar por foto dedicada ao tema
+coverImage: "../../assets/originals/cabine-1.jpg" # TODO: trocar por foto dedicada ao tema
 coverAlt: "Equipamento técnico utilizado em processos de validação de acessibilidade."
 date: 2025-12-01
 seoTitle: "Validação de Acessibilidade Digital (WCAG) | Gangorra"

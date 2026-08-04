@@ -2,7 +2,7 @@
 slug: "a-inteligencia-artificial-no-reconhecimento-das-imagens-para-pessoas-com-deficiencia-visual"
 title: "A Inteligência Artificial no Reconhecimento das Imagens para Pessoas com Deficiência Visual"
 excerpt: "Ferramentas de IA já conseguem descrever imagens automaticamente. Entenda até onde essa tecnologia ajuda pessoas com deficiência visual — e onde ela ainda falha."
-coverImage: "../../assets/originals/site-2.jpg" # TODO: trocar por foto dedicada ao tema
+coverImage: "../../assets/originals/cabine-1.jpg" # TODO: trocar por foto dedicada ao tema
 coverAlt: "Tela de computador com interface digital."
 date: 2024-03-05
 seoTitle: "IA no Reconhecimento de Imagens para Deficientes Visuais | Gangorra"

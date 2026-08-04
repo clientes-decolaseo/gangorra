@@ -2,7 +2,7 @@
 slug: "audiodescricao-em-exposicoes-de-arte"
 title: "A Audiodescrição em Exposições de Arte"
 excerpt: "Museus e galerias são espaços profundamente visuais. Veja como a audiodescrição transforma exposições de arte em experiências acessíveis para todos os públicos."
-coverImage: "../../assets/originals/hero-audience.jpg" # TODO: trocar por foto dedicada ao tema
+coverImage: "../../assets/originals/site-2.jpg" # TODO: trocar por foto dedicada ao tema
 coverAlt: "Pessoa em ambiente de exposição cultural."
 date: 2025-11-10
 seoTitle: "Audiodescrição em Exposições de Arte | Gangorra Audiodescrição"

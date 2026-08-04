@@ -3,6 +3,7 @@ import { Image, getImage } from 'astro:assets';
 import type { CollectionEntry } from 'astro:content';
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import { getCoverFilter } from '../../lib/coverFilters';
 import { buildBreadcrumbJsonLd, ORG_ID, SITE_URL } from '../../lib/seo';
 import { buildWhatsAppUrl } from '../../lib/nap';
 
@@ -38,6 +39,8 @@ const formattedDate = dateFormatter.format(data.date);
 const allPosts = (await getCollection('posts')).sort(
   (a, b) => b.data.date.getTime() - a.data.date.getTime(),
 );
+const coverFilterIndex = allPosts.findIndex((post) => post.data.slug === data.slug);
+const coverFilter = getCoverFilter(coverFilterIndex >= 0 ? coverFilterIndex : 0);
 const otherPosts = allPosts.filter((post) => post.data.slug !== data.slug).slice(0, 3);
 
 const whatsappUrl = buildWhatsAppUrl(
@@ -116,6 +119,7 @@ const articleJsonLd = {
       loading="eager"
       fetchpriority="high"
       class="aspect-video w-full rounded-2xl object-cover"
+      style={`filter: ${coverFilter}`}
     />
 
     <div class="prose mt-10">
@@ -150,7 +154,9 @@ const articleJsonLd = {
           </h2>
           <ul class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {
-              otherPosts.map((post) => (
+              otherPosts.map((post) => {
+                const relatedIndex = allPosts.findIndex((item) => item.data.slug === post.data.slug);
+                return (
                 <li>
                   <a
                     href={`/blog/${post.data.slug}`}
@@ -165,6 +171,7 @@ const articleJsonLd = {
                       quality="mid"
                       loading="lazy"
                       class="aspect-video w-full object-cover"
+                      style={`filter: ${getCoverFilter(relatedIndex >= 0 ? relatedIndex : 0)}`}
                     />
                     <div class="flex flex-1 flex-col gap-3 p-5">
                       <time
@@ -182,7 +189,8 @@ const articleJsonLd = {
                     </div>
                   </a>
                 </li>
-              ))
+                );
+              })
             }
           </ul>
         </div>

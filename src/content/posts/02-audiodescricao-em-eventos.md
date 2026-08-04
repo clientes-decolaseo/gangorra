@@ -2,7 +2,7 @@
 slug: "audiodescricao-em-eventos"
 title: "Audiodescrição em Eventos: A Importância da Inclusão para Todos"
 excerpt: "Congressos, premiações e lançamentos também precisam de audiodescrição. Entenda como o recurso funciona ao vivo e por que ele deveria ser padrão em eventos corporativos e culturais."
-coverImage: "../../assets/originals/hero-audience.png" # TODO: trocar por foto dedicada ao tema
+coverImage: "../../assets/originals/hero-audience.jpg" # TODO: trocar por foto dedicada ao tema
 coverAlt: "Público em um evento acompanhando uma apresentação."
 date: 2025-10-13
 seoTitle: "Audiodescrição em Eventos Corporativos e Culturais | Gangorra"

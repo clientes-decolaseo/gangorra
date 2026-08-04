@@ -2,7 +2,7 @@
 slug: "qual-a-diferenca-entre-audiodescricao-e-autodescricao"
 title: "Qual a Diferença entre Audiodescrição e Autodescrição?"
 excerpt: "Os dois termos são frequentemente confundidos, mas cumprem funções diferentes. Entenda a diferença entre audiodescrição profissional e autodescrição em redes sociais."
-coverImage: "../../assets/originals/cabine-4.jpg" # TODO: trocar por foto dedicada ao tema
+coverImage: "../../assets/originals/site-3.jpg" # TODO: trocar por foto dedicada ao tema
 coverAlt: "Equipamento técnico de audiodescrição em ambiente de cabine."
 date: 2025-11-17
 seoTitle: "Diferença entre Audiodescrição e Autodescrição | Gangorra"

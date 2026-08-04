@@ -2,7 +2,7 @@
 slug: "gaad-e-acessibilidade-digital"
 title: "GAAD e Acessibilidade Digital: Por que a Audiodescrição É Essencial no E-commerce"
 excerpt: "O Dia Global de Conscientização sobre Acessibilidade (GAAD) é um bom lembrete: lojas virtuais sem descrição de imagem excluem clientes com deficiência visual todos os dias do ano."
-coverImage: "../../assets/originals/site-2.jpg" # TODO: trocar por foto dedicada ao tema
+coverImage: "../../assets/originals/hero-audience.png" # TODO: trocar por foto dedicada ao tema
 coverAlt: "Interface digital de loja virtual em tela de computador."
 date: 2026-05-14
 seoTitle: "GAAD e Acessibilidade Digital no E-commerce | Gangorra"

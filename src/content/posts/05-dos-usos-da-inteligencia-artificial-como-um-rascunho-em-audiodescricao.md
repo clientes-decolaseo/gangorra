@@ -2,7 +2,7 @@
 slug: "dos-usos-da-inteligencia-artificial-como-um-rascunho-em-audiodescricao"
 title: "Dos Usos da Inteligência Artificial como um Rascunho em Audiodescrição"
 excerpt: "IA pode ajudar a gerar um primeiro rascunho de roteiro de audiodescrição? Sim, com ressalvas importantes. Entenda como usar essas ferramentas sem comprometer a qualidade final."
-coverImage: "../../assets/originals/site-3.jpg" # TODO: trocar por foto dedicada ao tema
+coverImage: "../../assets/originals/cabine-2.jpg" # TODO: trocar por foto dedicada ao tema
 coverAlt: "Pessoa trabalhando em frente a um computador."
 date: 2024-03-12
 seoTitle: "IA como Rascunho em Roteiros de Audiodescrição | Gangorra"
