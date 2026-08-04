@@ -20,8 +20,10 @@
   --color-primary-soft: oklch(0.95 0.025 240);
   --color-ink: oklch(0.24 0.09 258);
   --color-ink-soft: oklch(0.38 0.06 258);
+  /* Decorativa (separadores de seção). Controles interativos usam border-strong. */
   --color-border: oklch(0.9 0.02 250 / 0.5);
-  --color-border-strong: oklch(0.82 0.03 250);
+  /* ≥ 3:1 sobre surface/branco — WCAG 1.4.11 (bordas de UI) */
+  --color-border-strong: oklch(0.66 0.03 250);
   --color-destructive: oklch(0.58 0.22 25);
 
   --shadow-soft: 0 1px 2px oklch(0.2 0.08 260 / 0.04), 0 8px 30px oklch(0.2 0.08 260 / 0.06);
@@ -101,7 +103,7 @@ a.card-elevated:focus-visible {
 }
 
 .card-elevated {
-  @apply rounded-2xl border border-border bg-surface;
+  @apply rounded-2xl border border-border-strong bg-surface;
   box-shadow: var(--shadow-soft);
 }
 
