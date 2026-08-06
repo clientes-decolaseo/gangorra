@@ -37,6 +37,8 @@
     { "source": "/loja", "destination": "/", "permanent": true },
     { "source": "/loja/", "destination": "/", "permanent": true },
     { "source": "/1387", "destination": "/", "permanent": true },
-    { "source": "/1387/", "destination": "/", "permanent": true }
+    { "source": "/1387/", "destination": "/", "permanent": true },
+    { "source": "/servicos/acessibilidade-digital", "destination": "/servicos", "permanent": true },
+    { "source": "/servicos/acessibilidade-digital/", "destination": "/servicos", "permanent": true }
   ]
 }

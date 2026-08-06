@@ -23,4 +23,4 @@ Apesar de tecnicamente simples de implementar (a maioria dos sistemas digitais d
 
 Quando bem feita, a audiodescrição não compete com a trilha sonora nem soa como uma bula sendo lida — ela tem ritmo, ela respeita o tom do filme (uma comédia pede uma descrição mais leve que um drama) e permite que quem ouve construa a cena na imaginação com a mesma riqueza de quem vê na tela. É cinema por inteiro, não uma versão reduzida.
 
-Produz conteúdo audiovisual e quer incluir audiodescrição desde a pós-produção? [Conheça o serviço de acessibilidade digital da Gangorra](/servicos/acessibilidade-digital).
+Produz conteúdo audiovisual e quer incluir audiodescrição desde a pós-produção? [Conheça os serviços de audiodescrição da Gangorra](/servicos).
