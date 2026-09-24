@@ -9,5 +9,34 @@ export const COVER_FILTERS = [
 ] as const;
 
 export function getCoverFilter(index: number): string {
-  return COVER_FILTERS[((index % COVER_FILTERS.length) + COVER_FILTERS.length) % COVER_FILTERS.length];
+  const length = COVER_FILTERS.length;
+  return COVER_FILTERS[((index % length) + length) % length];
+}
+
+/**
+ * Atribui o filtro da posição (índice % 6). Se outro post com a mesma
+ * foto-base já usa esse filtro, avança para o próximo ainda livre.
+ */
+export function assignCoverFilters(imageKeys: readonly string[]): string[] {
+  const usedByImage = new Map<string, Set<number>>();
+
+  return imageKeys.map((key, index) => {
+    const length = COVER_FILTERS.length;
+    let slot = ((index % length) + length) % length;
+    const used = usedByImage.get(key) ?? new Set<number>();
+
+    if (used.has(slot)) {
+      for (let step = 1; step < length; step++) {
+        const candidate = (slot + step) % length;
+        if (!used.has(candidate)) {
+          slot = candidate;
+          break;
+        }
+      }
+    }
+
+    used.add(slot);
+    usedByImage.set(key, used);
+    return COVER_FILTERS[slot];
+  });
 }

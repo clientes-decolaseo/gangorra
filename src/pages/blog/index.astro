@@ -2,12 +2,13 @@
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import { getCoverFilter } from '../../lib/coverFilters';
+import { assignCoverFilters } from '../../lib/coverFilters';
 import { buildBreadcrumbJsonLd } from '../../lib/seo';
 
 const posts = (await getCollection('posts')).sort(
   (a, b) => b.data.date.getTime() - a.data.date.getTime(),
 );
+const coverFilters = assignCoverFilters(posts.map((post) => post.data.coverImage.src));
 
 const dateFormatter = new Intl.DateTimeFormat('pt-BR', { dateStyle: 'long' });
 
@@ -55,7 +56,7 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
                   quality="mid"
                   loading={index === 0 ? 'eager' : 'lazy'}
                   class="aspect-video w-full object-cover"
-                  style={`filter: ${getCoverFilter(index)}`}
+                  style={`filter: ${coverFilters[index]}`}
                 />
                 <div class="flex flex-1 flex-col gap-3 p-5">
                   <time
