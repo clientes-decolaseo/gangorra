@@ -4,7 +4,7 @@ import type { CollectionEntry } from 'astro:content';
 import { getCollection, render } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { assignCoverFilters } from '../../lib/coverFilters';
-import { buildBreadcrumbJsonLd, ORG_ID, SITE_URL } from '../../lib/seo';
+import { buildBreadcrumbJsonLd, buildFaqJsonLd, ORG_ID, SITE_URL } from '../../lib/seo';
 import { buildWhatsAppUrl } from '../../lib/nap';
 
 export async function getStaticPaths() {
@@ -54,6 +54,9 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
   { name: data.title, path: pagePath },
 ]);
 
+const faqs = data.faqs ?? [];
+const faqJsonLd = faqs.length > 0 ? buildFaqJsonLd(faqs) : null;
+
 const articleJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'BlogPosting',
@@ -61,6 +64,7 @@ const articleJsonLd = {
   description: data.excerpt,
   image: [coverAbsoluteUrl],
   datePublished: data.date.toISOString(),
+  dateModified: (data.dateModified ?? data.date).toISOString(),
   author: {
     '@type': 'Organization',
     '@id': ORG_ID,
@@ -78,7 +82,7 @@ const articleJsonLd = {
   canonical={pagePath}
   ogImage={coverAbsoluteUrl}
   ogType="article"
-  jsonLd={[breadcrumbJsonLd, articleJsonLd]}
+  jsonLd={[breadcrumbJsonLd, articleJsonLd, ...(faqJsonLd ? [faqJsonLd] : [])]}
 >
   <section class="border-b border-border py-8 md:py-10" aria-labelledby="post-title">
     <div class="container-page max-w-3xl">
@@ -127,6 +131,24 @@ const articleJsonLd = {
       <Content />
     </div>
 
+    {
+      faqs.length > 0 && (
+        <section class="mt-14" aria-labelledby="post-faq-title">
+          <h2 id="post-faq-title" class="font-display text-2xl font-semibold text-ink">
+            Perguntas frequentes
+          </h2>
+          <dl class="mt-6 space-y-6">
+            {faqs.map((faq) => (
+              <div>
+                <dt class="text-lg font-semibold text-ink">{faq.question}</dt>
+                <dd class="mt-2 leading-relaxed text-ink-soft">{faq.answer}</dd>
+              </div>
+            ))}
+          </dl>
+        </section>
+      )
+    }
+
     <aside
       class="card-elevated mt-14 flex flex-col gap-4 p-6 md:flex-row md:items-center md:justify-between md:p-8"
       aria-labelledby="post-cta-title"
@@ -134,15 +156,20 @@ const articleJsonLd = {
       <h2 id="post-cta-title" class="text-lg font-semibold text-ink md:text-xl">
         Precisa de audiodescrição ou acessibilidade no seu projeto?
       </h2>
-      <a
-        href={whatsappUrl}
-        target="_blank"
-        rel="noopener noreferrer"
-        class="btn-whatsapp inline-flex shrink-0 items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition-opacity"
-        aria-label="Falar no WhatsApp (abre em nova janela)"
-      >
-        Falar no WhatsApp
-      </a>
+      <div class="flex shrink-0 flex-col gap-3 sm:flex-row sm:items-center">
+        <a href="/servicos" class="text-sm font-semibold text-primary underline-offset-4 hover:underline">
+          Conheça os serviços
+        </a>
+        <a
+          href={whatsappUrl}
+          target="_blank"
+          rel="noopener noreferrer"
+          class="btn-whatsapp inline-flex shrink-0 items-center justify-center rounded-full px-6 py-3 text-sm font-semibold transition-opacity"
+          aria-label="Falar no WhatsApp (abre em nova janela)"
+        >
+          Falar no WhatsApp
+        </a>
+      </div>
     </aside>
   </article>
 

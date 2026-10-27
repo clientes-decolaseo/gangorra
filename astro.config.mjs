@@ -7,6 +7,7 @@ import tailwindcss from '@tailwindcss/vite';
 export default defineConfig({
   output: 'static',
   site: 'https://gangorraaudiodescricao.com.br',
+  trailingSlash: 'never',
   build: {
     inlineStylesheets: 'always',
   },

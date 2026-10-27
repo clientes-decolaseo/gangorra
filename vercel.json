@@ -1,5 +1,7 @@
 {
+  "trailingSlash": false,
   "redirects": [
+    { "source": "/servicos/documentos-acessiveis", "destination": "/servicos", "permanent": true },
     { "source": "/como-fazer-audiodescricao", "destination": "/blog/como-fazer-audiodescricao", "permanent": true },
     { "source": "/como-fazer-audiodescricao/", "destination": "/blog/como-fazer-audiodescricao", "permanent": true },
     { "source": "/audiodescricao-em-eventos", "destination": "/blog/audiodescricao-em-eventos", "permanent": true },
