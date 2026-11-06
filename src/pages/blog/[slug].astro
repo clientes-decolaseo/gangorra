@@ -133,7 +133,7 @@ const articleJsonLd = {
       loading="eager"
       fetchpriority="high"
       class="aspect-video w-full rounded-2xl object-cover"
-      style={`filter: ${coverFilter}`}
+      style={`filter: ${coverFilter}; object-position: ${data.coverPosition ?? 'center'}`}
     />
 
     <div class="prose mt-10">
@@ -208,7 +208,7 @@ const articleJsonLd = {
                       quality="mid"
                       loading="lazy"
                       class="aspect-video w-full object-cover"
-                      style={`filter: ${coverFilters[relatedIndex >= 0 ? relatedIndex : 0]}`}
+                      style={`filter: ${coverFilters[relatedIndex >= 0 ? relatedIndex : 0]}; object-position: ${post.data.coverPosition ?? 'center'}`}
                     />
                     <div class="flex flex-1 flex-col gap-3 p-5">
                       <time

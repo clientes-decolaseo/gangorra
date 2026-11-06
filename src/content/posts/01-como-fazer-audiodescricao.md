@@ -2,8 +2,9 @@
 slug: "como-fazer-audiodescricao"
 title: "Como Fazer Audiodescrição: Passo a Passo para Iniciantes"
 excerpt: "Passo a passo para fazer audiodescrição: o que observar, como priorizar a informação, exemplos de antes e depois e os erros mais comuns."
-coverImage: "../../assets/originals/cabine-4.jpg" # TODO: trocar por foto dedicada ao tema
-coverAlt: "Cabine de audiodescrição com equipamento de narração."
+coverImage: "../../assets/originals/como-fazer-audiodescricao-microfone.jpg"
+coverAlt: "Mulher sorridente, de cabelos longos, ondulados e castanhos, usando fones de ouvido pretos e regata preta, sentada diante de um microfone de estúdio. À esquerda, um notebook mostra um programa de edição de áudio com faixas em tons de rosa e roxo."
+coverPosition: "50% 12%"
 date: 2025-10-06
 seoTitle: "Como Fazer Audiodescrição: Passo a Passo e Exemplos | Gangorra"
 seoDescription: "Aprenda como fazer audiodescrição em 8 passos: o que descrever, como priorizar, exemplos antes e depois e como revisar com consultores."
