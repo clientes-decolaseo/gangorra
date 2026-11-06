@@ -6,6 +6,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import { assignCoverFilters } from '../../lib/coverFilters';
 import { buildBreadcrumbJsonLd, buildFaqJsonLd, ORG_ID, SITE_URL } from '../../lib/seo';
 import { buildWhatsAppUrl } from '../../lib/nap';
+import { lastUpdated, sortPostsByFreshness, wasUpdated } from '../../lib/posts';
 
 export async function getStaticPaths() {
   const posts = await getCollection('posts');
@@ -36,9 +37,7 @@ const coverAbsoluteUrl = new URL(coverOptimized.src, SITE_URL).href;
 const dateFormatter = new Intl.DateTimeFormat('pt-BR', { dateStyle: 'long' });
 const formattedDate = dateFormatter.format(data.date);
 
-const allPosts = (await getCollection('posts')).sort(
-  (a, b) => b.data.date.getTime() - a.data.date.getTime(),
-);
+const allPosts = sortPostsByFreshness(await getCollection('posts'));
 const coverFilters = assignCoverFilters(allPosts.map((post) => post.data.coverImage.src));
 const coverFilterIndex = allPosts.findIndex((post) => post.data.slug === data.slug);
 const coverFilter = coverFilters[coverFilterIndex >= 0 ? coverFilterIndex : 0];
@@ -107,6 +106,16 @@ const articleJsonLd = {
       >
         {formattedDate}
       </time>
+      {
+        wasUpdated(entry) && (
+          <p class="mt-1 text-sm text-ink-soft">
+            Atualizado em{' '}
+            <time datetime={lastUpdated(entry).toISOString()}>
+              {dateFormatter.format(lastUpdated(entry))}
+            </time>
+          </p>
+        )
+      }
       <h1 id="post-title" class="mt-3 font-display text-2xl font-semibold text-ink md:text-3xl">
         {data.title}
       </h1>
