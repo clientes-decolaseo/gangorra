@@ -2,8 +2,8 @@
 slug: "qual-a-diferenca-entre-audiodescricao-e-autodescricao"
 title: "Autodescrição ou Audiodescrição? Entenda a Diferença e Como se Audiodescrever"
 excerpt: "Autodescrição é apresentação pessoal. Descrever a si mesmo para pessoas cegas é audiodescrição, com técnica e norma. Veja a diferença e o passo a passo."
-coverImage: "../../assets/originals/site-3.jpg" # TODO: trocar por foto dedicada ao tema
-coverAlt: "Equipamento técnico de audiodescrição em ambiente de cabine."
+coverImage: "../../assets/originals/autodescricao-fones-caderno.jpg"
+coverAlt: "Fones de ouvido com fio pretos e um gravador de voz digital sobre um caderno pautado com anotações manuscritas, em luz quente de tom alaranjado."
 date: 2025-11-17
 seoTitle: "Autodescrição ou audiodescrição? Entenda a diferença | Gangorra"
 seoDescription: "Autodescrição é falar de gostos e preferências. Descrever a si mesmo para pessoas cegas é audiodescrição, com técnica. Veja a diferença e o passo a passo."
