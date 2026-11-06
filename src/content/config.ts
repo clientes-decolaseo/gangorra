@@ -83,6 +83,8 @@ const posts = defineCollection({
       excerpt: z.string(),
       coverImage: image(),
       coverAlt: z.string(),
+      /** Ponto de enquadramento da capa no corte 16:9 (CSS object-position). Padrão: centro. */
+      coverPosition: z.string().optional(),
       date: z.date(),
       seoTitle: z.string(),
       seoDescription: z.string(),

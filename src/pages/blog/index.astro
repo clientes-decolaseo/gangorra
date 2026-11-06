@@ -55,7 +55,7 @@ const breadcrumbJsonLd = buildBreadcrumbJsonLd([
                   quality="mid"
                   loading={index === 0 ? 'eager' : 'lazy'}
                   class="aspect-video w-full object-cover"
-                  style={`filter: ${coverFilters[index]}`}
+                  style={`filter: ${coverFilters[index]}; object-position: ${post.data.coverPosition ?? 'center'}`}
                 />
                 <div class="flex flex-1 flex-col gap-3 p-5">
                   <time
