@@ -1,94 +1,90 @@
 ---
 slug: "qual-a-diferenca-entre-audiodescricao-e-autodescricao"
-title: "O que é Autodescrição? Exemplos e Diferença para Audiodescrição"
-excerpt: "Autodescrição é quando a pessoa descreve a própria aparência e o ambiente para quem não enxerga. Veja como fazer, um exemplo e a diferença para a audiodescrição profissional."
+title: "Autodescrição ou Audiodescrição? Entenda a Diferença e Como se Audiodescrever"
+excerpt: "Autodescrição é apresentação pessoal. Descrever a si mesmo para pessoas cegas é audiodescrição, com técnica e norma. Veja a diferença e o passo a passo."
 coverImage: "../../assets/originals/site-3.jpg" # TODO: trocar por foto dedicada ao tema
 coverAlt: "Equipamento técnico de audiodescrição em ambiente de cabine."
 date: 2025-11-17
-seoTitle: "O que é autodescrição? Diferença para audiodescrição | Gangorra"
-seoDescription: "Autodescrição é descrever a própria aparência para quem não enxerga. Entenda o conceito, veja um exemplo e a diferença para a audiodescrição profissional."
-dateModified: 2026-10-27
+seoTitle: "Autodescrição ou audiodescrição? Entenda a diferença | Gangorra"
+seoDescription: "Autodescrição é falar de gostos e preferências. Descrever a si mesmo para pessoas cegas é audiodescrição, com técnica. Veja a diferença e o passo a passo."
+dateModified: 2026-11-06
 faqs:
   - question: "O que é autodescrição?"
-    answer: "Autodescrição é quando a própria pessoa descreve sua aparência e o ambiente em que está, em voz alta ou por escrito. Ela ajuda quem não enxerga ou tem baixa visão a se situar."
+    answer: "Autodescrição é quando a pessoa se apresenta falando de si: gostos, preferências, formação e história. Ela não tem finalidade de acessibilidade."
   - question: "Qual a diferença entre autodescrição e audiodescrição?"
-    answer: "Na autodescrição, a pessoa descreve a si mesma. Na audiodescrição, um profissional roteiriza e narra o que aparece em obras, eventos ou conteúdos de terceiros."
-  - question: "Como fazer uma autodescrição?"
-    answer: "Diga seu nome, descreva de forma breve sua aparência e suas roupas e cite o ambiente. Use frases curtas e fale logo no começo do vídeo, da live ou da apresentação."
+    answer: "Autodescrição é apresentação pessoal. A audiodescrição, inclusive a de si mesmo, é um recurso de acessibilidade e segue técnica."
+  - question: "Como fazer a audiodescrição de si mesmo?"
+    answer: "Diga seu nome. Descreva do geral para o específico: gênero, altura ou enquadramento e cor de pele. Depois, de cima para baixo: cabelos, rosto, acessórios, roupa e fundo."
   - question: "Autodescrição ou auto descrição: qual é a grafia correta?"
-    answer: "A grafia correta é autodescrição, junto e sem hífen. O mesmo vale para o verbo: autodescrever."
-  - question: "A autodescrição substitui a audiodescrição?"
-    answer: "Não. Ela cobre quem está falando. Vídeos, peças, eventos e outros conteúdos visuais precisam de audiodescrição profissional para ficarem acessíveis."
+    answer: "A grafia correta é autodescrição, junto e sem hífen."
+  - question: "Quando preciso de audiodescrição profissional?"
+    answer: "Quando o conteúdo é de terceiros e tem informação visual, como eventos, espetáculos e vídeos institucionais."
 ---
 
-Você já viu alguém começar um vídeo dizendo: "Oi, eu sou a Ana, uma mulher de cabelos cacheados, estou de camiseta verde, sentada em uma sala com uma estante de livros ao fundo"? Esse gesto tem nome: **autodescrição**.
+Muita gente usa a palavra "autodescrição" para dois gestos bem diferentes. Um é uma apresentação pessoal. O outro é um recurso de acessibilidade, que tem técnica e não é aleatório.
 
-Neste guia, você vê o que é autodescrição, quando usar, como fazer passo a passo e qual a diferença para a [audiodescrição profissional](/servicos).
+Neste guia, você vê o que é autodescrição, o que é audiodescrição de si mesmo e como fazer a segunda corretamente.
 
 ## O que é autodescrição
 
-Autodescrição é a prática de a própria pessoa descrever sua aparência e o ambiente onde está. Pode ser falada, em vídeos, lives, reuniões e palestras. Também pode ser escrita, na legenda de uma foto ou no perfil de uma rede social.
+Autodescrição é quando a pessoa se apresenta falando de si: seus gostos, suas preferências, sua formação, sua história. Ela não tem finalidade de acessibilidade.
 
-O objetivo é simples. Pessoas cegas ou com baixa visão não acessam essas informações pela imagem. A autodescrição entrega esse contexto logo no início, sem depender de terceiros.
+Exemplo: "Eu sou a Carla, sou formada em pedagogia, adoro chocolate e sou uma mulher branca."
 
-Quem decide o que dizer sobre si é a própria pessoa. Ela escolhe como se identificar e quais características são relevantes naquele momento.
+Mesmo quando cita uma característica física, a pessoa está se apresentando. Ela não está descrevendo o que se vê para quem não enxerga.
 
-## Para que serve a autodescrição
+## O que é a audiodescrição de si mesmo
 
-- **Situar quem ouve:** a pessoa sabe quem está falando e como é o cenário.
-- **Incluir na prática:** o conteúdo deixa de depender só do que se vê.
-- **Criar o hábito:** palestrantes, apresentadores e criadores de conteúdo mostram que acessibilidade faz parte da comunicação.
+Quando a pessoa diz como é para atender à necessidade de pessoas cegas ou com baixa visão, isso é audiodescrição. É um recurso de acessibilidade. Por isso, mesmo sendo informal, segue técnica e norma.
 
-Em redes sociais no Brasil, é comum usar a hashtag #PraCegoVer junto da descrição de imagens. Ela sinaliza que o post traz descrição para quem usa leitores de tela.
+É comum no início de palestras, eventos, lives e reuniões. Para a Gangorra, esse gesto se chama audiodescrição, e quem o faz se audiodescreve.
 
-## Como fazer uma autodescrição: passo a passo
+Nas redes sociais, o termo "autodescrição" se espalhou para nomear esse gesto. Esse uso é impreciso e mistura duas coisas diferentes.
 
-1. **Comece pelo nome.** Diga quem você é antes de qualquer outra informação.
-2. **Descreva sua aparência de forma breve.** Cite o que for relevante: cabelo, tom de pele, idade aproximada, marcas visíveis. Use as palavras com que você se identifica.
-3. **Fale das roupas e acessórios.** Cor e tipo de peça costumam bastar.
-4. **Situe o ambiente.** Diga onde você está e o que aparece ao fundo.
-5. **Seja objetivo.** Use frases curtas e linguagem direta, sem julgamentos. Poucos segundos são suficientes.
-6. **Faça isso no início.** Em lives e reuniões, repita quando entrar alguém novo.
+## Como se audiodescrever: passo a passo
 
-### Exemplo de autodescrição
+A ordem importa. Vá sempre do geral para o específico e, depois, de cima para baixo.
 
-> "Oi, eu sou a Ana. Sou uma mulher de pele parda e cabelos cacheados na altura dos ombros. Estou usando uma camiseta verde e óculos de armação preta. Estou sentada em uma sala clara, com uma estante de livros atrás de mim."
+1. **Diga seu nome.**
+2. **Dê as características gerais.** Cite o gênero. Diga a altura, se estiver de pé, ou o enquadramento, se estiver em vídeo ou live. Cite a cor de pele.
+3. **Descreva os cabelos.** É o começo da descrição de cima para baixo.
+4. **Descreva as características do rosto.**
+5. **Cite os acessórios.**
+6. **Descreva a roupa.**
+7. **Descreva o fundo,** ou seja, o ambiente onde você está.
 
-Esse é um exemplo ilustrativo. Cada pessoa deve adaptar o texto à própria identidade e ao contexto.
+**Exemplo de audiodescrição de si mesmo**
 
-## Erros comuns na autodescrição
+> "Meu nome é Ana. Sou uma mulher, estou sentada, e o enquadramento mostra do busto para cima. Tenho pele parda. Meus cabelos são cacheados, castanho-escuros, na altura dos ombros. Tenho o rosto redondo e sobrancelhas grossas. Uso óculos de armação preta e brincos dourados pequenos. Estou com uma camiseta verde. Ao fundo, há uma parede clara e uma estante com livros."
 
-- **Falar demais.** Uma descrição longa cansa e atrasa o conteúdo. Fique no essencial.
-- **Usar adjetivos de opinião.** Prefira fatos observáveis, como cor e tipo de roupa. Evite termos como "bonita" ou "elegante".
-- **Esquecer de quem chega depois.** Em lives e reuniões, quem entra no meio perde a descrição inicial. Repita de forma breve.
-- **Deixar só para a imagem.** Se a informação só aparece no visual, ela não chega a todos. Diga em voz alta ou escreva no texto.
-- **Confundir com texto alternativo.** O texto alternativo descreve uma imagem em um site ou post. A autodescrição é a pessoa falando de si.
+Esse é um exemplo ilustrativo. O texto de cada pessoa varia, mas a ordem se mantém.
 
-## Autodescrição ou audiodescrição: qual a diferença
+## Erros comuns
 
-São recursos diferentes. Os dois combatem a mesma barreira, a falta de acesso à informação visual.
+- **Misturar com gostos e preferências.** "Adoro chocolate" é autodescrição. Não ajuda quem precisa saber como você é.
+- **Fugir da ordem.** Pular do rosto para a roupa e voltar aos cabelos confunde quem ouve.
+- **Trocar a descrição por opinião.** Prefira o que se vê, como cor e tipo de roupa. Evite termos como "bonita" ou "elegante".
+- **Falar demais.** Descreva o que é necessário e siga com a sua fala.
 
-| | Autodescrição | Audiodescrição |
-|---|---|---|
-| Quem faz | A própria pessoa | Profissional especializado |
-| O que descreve | Quem fala e o ambiente | Obras, eventos e conteúdos de terceiros |
-| Formato | Informal, curto | Roteirizada, com critérios técnicos |
-| Onde aparece | Lives, vídeos, reuniões, perfis | Teatro, eventos, vídeos, imagens |
+## Autodescrição x audiodescrição de si: qual a diferença
 
-A audiodescrição segue critérios técnicos de tempo, precisão e prioridade de informação. Quer entender como isso funciona na prática? Leia o [guia de como fazer audiodescrição](/blog/como-fazer-audiodescricao).
+| | Autodescrição | Audiodescrição de si mesmo |
+| --- | --- | --- |
+| Finalidade | Se apresentar | Acessibilidade para pessoas cegas e com baixa visão |
+| Conteúdo | Gostos, preferências, formação, história | Aparência e ambiente, do geral para o específico, de cima para baixo |
+| Segue norma? | Não | Sim |
+| Exemplo | "Sou formada em pedagogia e adoro chocolate" | "Meu nome é Ana. Sou uma mulher, de pele parda, cabelos cacheados..." |
+
+Quer entender como a técnica funciona em outros conteúdos? Leia o guia [Como fazer audiodescrição](/blog/como-fazer-audiodescricao).
 
 ## Quando você precisa de audiodescrição profissional
 
-A autodescrição resolve bem quem aparece em cena. Ela não dá conta do que acontece ao redor.
+Se audiodescrever resolve quem aparece em cena. Não dá conta do que acontece ao redor.
 
 Procure um profissional quando o conteúdo tiver:
 
 - **Eventos e congressos:** cenário, palestrantes, telões e atrações. Conheça a [audiodescrição para eventos](/servicos/audiodescricao-eventos).
 - **Espetáculos:** cenas, figurinos e movimentação. Veja a [audiodescrição para teatro](/servicos/audiodescricao-teatro).
 - **Vídeos institucionais e publicitários:** imagens, textos na tela e ações que não aparecem na fala.
-
-Uma marca pode e deve incentivar a autodescrição de seus porta-vozes. Para tornar o conteúdo acessível de verdade, também precisa de audiodescrição.
-
-## Quer tornar seu conteúdo acessível?
 
 A Gangorra produz audiodescrição para teatro, eventos e conteúdo digital. [Fale com a equipe](/contato) e conte o que você precisa.
